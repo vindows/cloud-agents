@@ -1,0 +1,33 @@
+{
+  "agents": 180,
+  "agents_by_group": {
+    "HW-Access-Identity": 45,
+    "HW-Endpoint-Hardware": 45,
+    "HW-Network-Ops": 45,
+    "HW-Enterprise-Apps": 45
+  },
+  "tickets": 6000,
+  "duplicate_count": 1800,
+  "duplicate_rate": 0.3,
+  "categories": {
+    "applications": 1615,
+    "access": 1365,
+    "hardware": 1336,
+    "network": 1684
+  },
+  "recency_tiers": {
+    "stale": 4525,
+    "middle": 1134,
+    "recent": 341
+  },
+  "opened_at_min": "2020-11-25T19:44:07Z",
+  "opened_at_max": "2026-11-24T17:37:46Z",
+  "golden_set": 200,
+  "golden_dupes": 60,
+  "golden_categories": {
+    "network": 45,
+    "hardware": 53,
+    "applications": 54,
+    "access": 48
+  }
+}
