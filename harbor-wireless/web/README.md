@@ -46,3 +46,9 @@ npm run preview # serve dist
 | `/queue` | Ranked auto-assign with why |
 | `/ops` | Handled metrics (≤3 hero figures) |
 | `/policy` | Archive Auto / Human / Hybrid levers |
+
+## Demo notes (operators)
+
+- **Queue ranking** is UI-side (`buildQueue` from loaded tickets/agents). Phase 1 has no pipeline queue endpoint; live `/triage/run` remains the routing source of truth when the API is up.
+- **Archive age math** uses a fixed demo “now” of `2026-11-24` so recency tiers stay stable across machines. Policy PUT still round-trips to `/archive/levers` when pipeline is running.
+- **Client `applyArchivePolicy`** soft-mutates ticket triage labels for storytelling on load; re-run triage against the pipeline for authoritative outcomes.
