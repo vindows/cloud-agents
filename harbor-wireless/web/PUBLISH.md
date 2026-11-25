@@ -26,7 +26,7 @@ npm run copy-demo-data
 ## Cursor publish-app
 
 1. Publish project dir: `harbor-wireless/web` (contains `package.json` + Vite app).
-2. Host runs `npm install` / `npm run build`. `prebuild` copies `../data/*.json` into `public/demo-data/` when the sibling data folder is present; committed `public/demo-data/` is the fallback if packing only ships `web/`.
+2. Host runs `npm install` / `npm run build`. `prebuild` copies `../data/*.json` into `public/demo-data/` when the sibling data folder is present; if packing only ships `web/`, the script keeps the committed `public/demo-data/` and exits 0.
 3. No `VITE_PIPELINE_URL` needed. In production builds, a localhost pipeline URL is ignored so the SPA does not hang waiting on `127.0.0.1:8080`. Triage uses client-side `simulateTriage`; metrics/queue/policy use seed adapters.
 4. Optional: point `VITE_PIPELINE_URL` at a publicly reachable pipeline host if you want live `/triage/run` + `/metrics`.
 
