@@ -17,6 +17,8 @@ interface Props {
 
 export function PipelineSpine({ steps, idle }: Props) {
   const byName = new Map(steps.map((s) => [canonical(s.name), s]));
+  const runFinished =
+    steps.length > 0 && steps.every((s) => s.status === "done" || s.status === "skipped");
 
   return (
     <div className="pipeline-spine" role="list" aria-label="Triage pipeline">
@@ -25,6 +27,7 @@ export function PipelineSpine({ steps, idle }: Props) {
         let status: "idle" | "pending" | "running" | "done" | "skipped" = "idle";
         if (idle || steps.length === 0) status = "idle";
         else if (step) status = step.status === "pending" ? "pending" : step.status;
+        else if (runFinished) status = "skipped";
         else if (steps.length) status = "pending";
 
         const cls = [

@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import type { TicketCategory, TicketState } from "../api/types";
 import { useDemo } from "../state/DemoStore";
@@ -36,6 +36,11 @@ export function TicketsPage() {
   }, [tickets, category, state, q]);
 
   const selected = tickets.find((t) => t.sys_id === sysId) ?? null;
+  const detailRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (selected) detailRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }, [selected?.sys_id]);
 
   return (
     <div>
@@ -80,46 +85,8 @@ export function TicketsPage() {
         </aside>
 
         <div>
-          <p style={{ color: "var(--hw-slate)", fontSize: "0.85rem", margin: "0 0 8px" }}>
-            Showing {Math.min(filtered.length, 120)} of {filtered.length} · {tickets.length} total
-          </p>
-          <div className="ticket-table-wrap">
-            <table className="ticket-table">
-              <thead>
-                <tr>
-                  <th>Number</th>
-                  <th>Short description</th>
-                  <th>Category</th>
-                  <th>Priority</th>
-                  <th>State</th>
-                  <th>Opened</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filtered.slice(0, 120).map((t) => (
-                  <tr
-                    key={t.sys_id}
-                    className={selected?.sys_id === t.sys_id ? "selected" : ""}
-                    onClick={() => navigate(`/tickets/${t.sys_id}`)}
-                  >
-                    <td className="mono">{t.number}</td>
-                    <td>{t.short_description}</td>
-                    <td>{t.category}</td>
-                    <td className={Number(t.priority) <= 2 ? "status flare" : ""}>P{t.priority}</td>
-                    <td>
-                      <span className={stateClass(t.state)}>{t.state}</span>
-                      {t.parent ? <span className="status dup"> · dup</span> : null}
-                    </td>
-                    <td className="mono">{t.opened_at.slice(0, 10)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            {!filtered.length && <div className="empty" style={{ padding: 24, color: "var(--hw-slate)" }}>No tickets match.</div>}
-          </div>
-
           {selected && (
-            <div className="detail-split">
+            <div className="detail-split" ref={detailRef} style={{ marginBottom: 20 }}>
               <div>
                 <h2 style={{ fontSize: "1.25rem", marginBottom: 12 }}>{selected.short_description}</h2>
                 <dl>
@@ -129,7 +96,14 @@ export function TicketsPage() {
                   </div>
                   <div className="kv">
                     <dt>Caller</dt>
-                    <dd className="mono">{selected.caller_id}</dd>
+                    <dd>
+                      {selected.caller_name ?? selected.caller_id}
+                      {selected.caller_name ? (
+                        <span className="mono" style={{ color: "var(--hw-slate)", marginLeft: 8 }}>
+                          {selected.caller_id}
+                        </span>
+                      ) : null}
+                    </dd>
                   </div>
                   <div className="kv">
                     <dt>Group</dt>
@@ -184,6 +158,44 @@ export function TicketsPage() {
               </div>
             </div>
           )}
+
+          <p style={{ color: "var(--hw-slate)", fontSize: "0.85rem", margin: "0 0 8px" }}>
+            Showing {Math.min(filtered.length, 120)} of {filtered.length} · {tickets.length} total
+          </p>
+          <div className="ticket-table-wrap">
+            <table className="ticket-table">
+              <thead>
+                <tr>
+                  <th>Number</th>
+                  <th>Short description</th>
+                  <th>Category</th>
+                  <th>Priority</th>
+                  <th>State</th>
+                  <th>Opened</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filtered.slice(0, 120).map((t) => (
+                  <tr
+                    key={t.sys_id}
+                    className={selected?.sys_id === t.sys_id ? "selected" : ""}
+                    onClick={() => navigate(`/tickets/${t.sys_id}`)}
+                  >
+                    <td className="mono">{t.number}</td>
+                    <td>{t.short_description}</td>
+                    <td>{t.category}</td>
+                    <td className={Number(t.priority) <= 2 ? "status flare" : ""}>P{t.priority}</td>
+                    <td>
+                      <span className={stateClass(t.state)}>{t.state}</span>
+                      {t.parent ? <span className="status dup"> · dup</span> : null}
+                    </td>
+                    <td className="mono">{t.opened_at.slice(0, 10)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            {!filtered.length && <div className="empty" style={{ padding: 24, color: "var(--hw-slate)" }}>No tickets match.</div>}
+          </div>
         </div>
       </div>
     </div>

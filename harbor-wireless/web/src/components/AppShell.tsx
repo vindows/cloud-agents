@@ -1,4 +1,5 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { useEffect } from "react";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { useDemo } from "../state/DemoStore";
 
 const LINKS = [
@@ -11,6 +12,11 @@ const LINKS = [
 
 export function AppShell() {
   const { policy, dataSource, ready } = useDemo();
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   if (!ready) {
     return (

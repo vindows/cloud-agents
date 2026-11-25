@@ -350,6 +350,13 @@ export function simulateTriage(ticket: Ticket, tickets: Ticket[], agents: Agent[
       { assigned_to: agent?.id, assignment_group: ticket.assignment_group },
     ),
   );
+  steps.push({
+    id: `${ticket.sys_id}-archive`,
+    name: "archive",
+    status: "skipped",
+    reason: "Skipped — ticket routed; not an archive candidate under current levers.",
+    confidence: 0,
+  });
 
   return {
     ticket_sys_id: ticket.sys_id,
