@@ -7,7 +7,10 @@ import react from "@vitejs/plugin-react";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const dataDir = path.resolve(__dirname, "../data");
 
-/** Serve harbor-wireless/data at /demo-data for adapters. */
+/**
+ * Dev-only: serve ../data at /demo-data.
+ * Production uses files copied into public/demo-data/ (see scripts/copy-demo-data.mjs).
+ */
 function harborDataPlugin(): Plugin {
   return {
     name: "harbor-data",

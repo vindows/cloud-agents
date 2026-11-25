@@ -1,10 +1,13 @@
 /**
  * Data + pipeline adapters.
- * Prefer harbor-wireless/data (/demo-data) + pipeline on :8080; seed fallback.
+ * Prefer /demo-data (public/ in prod, Vite middleware in dev) + optional pipeline;
+ * seed/simulate when remote data or pipeline is unavailable.
  *
  * Env:
  *   VITE_DATA_BASE     — default /demo-data
- *   VITE_PIPELINE_URL  — default http://127.0.0.1:8080
+ *   VITE_PIPELINE_URL  — default http://127.0.0.1:8080 in dev;
+ *                        ignored in production when still pointing at localhost
+ *                        so a published SPA stays usable alone
  */
 
 import type {
@@ -29,7 +32,22 @@ import {
 } from "../data/seed";
 
 const DATA_BASE = import.meta.env.VITE_DATA_BASE ?? "/demo-data";
-const PIPELINE_URL = import.meta.env.VITE_PIPELINE_URL ?? "http://127.0.0.1:8080";
+
+function resolvePipelineUrl(): string | null {
+  const raw = (import.meta.env.VITE_PIPELINE_URL as string | undefined) ?? "http://127.0.0.1:8080";
+  if (!raw.trim()) return null;
+  if (import.meta.env.PROD) {
+    try {
+      const host = new URL(raw).hostname;
+      if (host === "127.0.0.1" || host === "localhost") return null;
+    } catch {
+      return null;
+    }
+  }
+  return raw;
+}
+
+const PIPELINE_URL = resolvePipelineUrl();
 
 async function tryJson<T>(url: string, init?: RequestInit): Promise<T | null> {
   try {
@@ -82,7 +100,9 @@ interface PipelineMetrics {
 }
 
 export async function loadMetrics(tickets: Ticket[]): Promise<OpsMetrics> {
-  const remote = await tryJson<PipelineMetrics>(`${PIPELINE_URL}/metrics`);
+  const remote = PIPELINE_URL
+    ? await tryJson<PipelineMetrics>(`${PIPELINE_URL}/metrics`)
+    : null;
   if (remote && typeof remote.handled === "number") {
     const outcomes = remote.outcomes ?? {};
     const cats = (["access", "hardware", "network", "applications"] as TicketCategory[]).map(
@@ -139,36 +159,38 @@ interface PipelineResult {
 }
 
 export async function runTriage(ticket: Ticket, tickets: Ticket[], agents: Agent[]): Promise<TriageRun> {
-  try {
-    const res = await fetch(`${PIPELINE_URL}/triage/run`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        ticket: {
-          sys_id: ticket.sys_id,
-          number: ticket.number,
-          short_description: ticket.short_description,
-          description: ticket.description,
-          category: ticket.category,
-          priority: ticket.priority_label ?? ticket.priority,
-          state: ticket.state,
-          assignment_group: ticket.assignment_group,
-          assigned_to: ticket.assigned_to,
-          opened_at: ticket.opened_at,
-          caller_id: ticket.caller_id,
-          parent: ticket.parent,
-        },
-        archive: policyCache,
-        dry_run: false,
-      }),
-      signal: AbortSignal.timeout(12000),
-    });
-    if (res.ok) {
-      const body = (await res.json()) as PipelineResult;
-      if (body.steps?.length) return mapPipelineResult(body, ticket);
+  if (PIPELINE_URL) {
+    try {
+      const res = await fetch(`${PIPELINE_URL}/triage/run`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ticket: {
+            sys_id: ticket.sys_id,
+            number: ticket.number,
+            short_description: ticket.short_description,
+            description: ticket.description,
+            category: ticket.category,
+            priority: ticket.priority_label ?? ticket.priority,
+            state: ticket.state,
+            assignment_group: ticket.assignment_group,
+            assigned_to: ticket.assigned_to,
+            opened_at: ticket.opened_at,
+            caller_id: ticket.caller_id,
+            parent: ticket.parent,
+          },
+          archive: policyCache,
+          dry_run: false,
+        }),
+        signal: AbortSignal.timeout(12000),
+      });
+      if (res.ok) {
+        const body = (await res.json()) as PipelineResult;
+        if (body.steps?.length) return mapPipelineResult(body, ticket);
+      }
+    } catch {
+      /* seed simulation */
     }
-  } catch {
-    /* seed simulation */
   }
   return simulateTriage(ticket, tickets, agents);
 }
@@ -231,6 +253,7 @@ export function getArchivePolicy(): ArchivePolicy {
 }
 
 export async function fetchArchivePolicy(): Promise<ArchivePolicy> {
+  if (!PIPELINE_URL) return { ...policyCache };
   const remote = await tryJson<ArchivePolicy>(`${PIPELINE_URL}/archive/levers`);
   if (remote && remote.mode) {
     policyCache = {
@@ -248,11 +271,13 @@ export function setArchivePolicy(next: ArchivePolicy): ArchivePolicy {
     age_years: next.age_years,
     inactive_days: next.inactive_days ?? 365,
   };
-  void fetch(`${PIPELINE_URL}/archive/levers`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(policyCache),
-  }).catch(() => undefined);
+  if (PIPELINE_URL) {
+    void fetch(`${PIPELINE_URL}/archive/levers`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(policyCache),
+    }).catch(() => undefined);
+  }
   return { ...policyCache };
 }
 

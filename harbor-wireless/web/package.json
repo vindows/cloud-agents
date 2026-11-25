@@ -4,6 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "prebuild": "node scripts/copy-demo-data.mjs",
+    "copy-demo-data": "node scripts/copy-demo-data.mjs",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
