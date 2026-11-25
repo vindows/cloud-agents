@@ -1,0 +1,2882 @@
+[
+  {
+    "sys_id": "ac103525-0b66-4028-80e0-3d2cf3c95789",
+    "employee_number": "E10001",
+    "name": "Dana Perez",
+    "email": "dana.perez1@harborwireless.example",
+    "user_name": "dperez001",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "L2 Specialist",
+    "region": "Great Lakes",
+    "active": true,
+    "skills": [
+      "access",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "d670c342-c6cc-4996-acaf-76a5703598ae",
+    "employee_number": "E10002",
+    "name": "Chris Santos",
+    "email": "chris.santos2@harborwireless.example",
+    "user_name": "csantos002",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "L2 Specialist",
+    "region": "Southeast",
+    "active": true,
+    "skills": [
+      "access",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "f147ecf9-0eca-4828-a2f7-95538fcc69d7",
+    "employee_number": "E10003",
+    "name": "Aisha Nguyen",
+    "email": "aisha.nguyen3@harborwireless.example",
+    "user_name": "anguyen003",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "L2 Specialist",
+    "region": "Great Lakes",
+    "active": true,
+    "skills": [
+      "access",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "b459071a-fb8a-4f9e-bf72-c46dca8fbe35",
+    "employee_number": "E10004",
+    "name": "Alex Santos",
+    "email": "alex.santos4@harborwireless.example",
+    "user_name": "asantos004",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "Queue Lead",
+    "region": "Pacific",
+    "active": true,
+    "skills": [
+      "access",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "29ea3a7b-a4ea-4938-9429-fc52410915b0",
+    "employee_number": "E10005",
+    "name": "Andre Lopez",
+    "email": "andre.lopez5@harborwireless.example",
+    "user_name": "alopez005",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "Senior Engineer",
+    "region": "Mountain",
+    "active": true,
+    "skills": [
+      "access",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "44e767f7-43bb-4898-ac59-157196f119be",
+    "employee_number": "E10006",
+    "name": "Zoe Garcia",
+    "email": "zoe.garcia6@harborwireless.example",
+    "user_name": "zgarcia006",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "Queue Lead",
+    "region": "Midwest",
+    "active": true,
+    "skills": [
+      "access",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "ec433ae0-26e1-44cf-8b41-52c84d1dd7de",
+    "employee_number": "E10007",
+    "name": "Isabel Adams",
+    "email": "isabel.adams7@harborwireless.example",
+    "user_name": "iadams007",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "L1 Agent",
+    "region": "Pacific",
+    "active": true,
+    "skills": [
+      "access",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "673940a8-7aa1-4aa0-a6de-2e96c8671192",
+    "employee_number": "E10008",
+    "name": "Yara Kim",
+    "email": "yara.kim8@harborwireless.example",
+    "user_name": "ykim008",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "Senior Engineer",
+    "region": "Southwest",
+    "active": true,
+    "skills": [
+      "access",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "3313f3f0-1fa0-4770-ae26-77a6d9a3ce9e",
+    "employee_number": "E10009",
+    "name": "Diego Singh",
+    "email": "diego.singh9@harborwireless.example",
+    "user_name": "dsingh009",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "Senior Engineer",
+    "region": "Central",
+    "active": true,
+    "skills": [
+      "access",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "e537eaea-2aa6-4f38-aa9b-b2c4138b0edc",
+    "employee_number": "E10010",
+    "name": "Victor Wright",
+    "email": "victor.wright10@harborwireless.example",
+    "user_name": "vwright010",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "Senior Engineer",
+    "region": "Central",
+    "active": true,
+    "skills": [
+      "access",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "eebdc582-c1ca-446a-bb9e-a66e083b5317",
+    "employee_number": "E10011",
+    "name": "Ben Kim",
+    "email": "ben.kim11@harborwireless.example",
+    "user_name": "bkim011",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "Senior Engineer",
+    "region": "Southeast",
+    "active": true,
+    "skills": [
+      "access",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "2a832340-7e9a-42dd-9d26-0d6e8e9a8013",
+    "employee_number": "E10012",
+    "name": "Mei Evans",
+    "email": "mei.evans12@harborwireless.example",
+    "user_name": "mevans012",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "L2 Specialist",
+    "region": "Great Lakes",
+    "active": true,
+    "skills": [
+      "access",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "62987f1a-673e-4eb9-98b9-a79e43360d8b",
+    "employee_number": "E10013",
+    "name": "Ian Baker",
+    "email": "ian.baker13@harborwireless.example",
+    "user_name": "ibaker013",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "Queue Lead",
+    "region": "Mountain",
+    "active": true,
+    "skills": [
+      "access",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "8c37e876-d757-40a7-a38c-782216df7dfa",
+    "employee_number": "E10014",
+    "name": "Ava Adams",
+    "email": "ava.adams14@harborwireless.example",
+    "user_name": "aadams014",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "Queue Lead",
+    "region": "Southwest",
+    "active": true,
+    "skills": [
+      "access",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "137b8cef-f4c0-40a7-8369-39b18dd6016d",
+    "employee_number": "E10015",
+    "name": "Wei Jackson",
+    "email": "wei.jackson15@harborwireless.example",
+    "user_name": "wjackson015",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "L2 Specialist",
+    "region": "Northeast",
+    "active": true,
+    "skills": [
+      "access",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "ad5c3ecc-48d0-4936-b744-7754564c1708",
+    "employee_number": "E10016",
+    "name": "Ana Adams",
+    "email": "ana.adams16@harborwireless.example",
+    "user_name": "aadams016",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "Senior Engineer",
+    "region": "Central",
+    "active": true,
+    "skills": [
+      "access",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "7412d93a-37b7-43c4-b26d-d23dbbcc74cb",
+    "employee_number": "E10017",
+    "name": "Kai Foster",
+    "email": "kai.foster17@harborwireless.example",
+    "user_name": "kfoster017",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "Queue Lead",
+    "region": "Southwest",
+    "active": true,
+    "skills": [
+      "access",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "d16de1ee-5b92-4b78-8577-d348ffa52d61",
+    "employee_number": "E10018",
+    "name": "Jasmine Garcia",
+    "email": "jasmine.garcia18@harborwireless.example",
+    "user_name": "jgarcia018",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "L1 Agent",
+    "region": "Great Lakes",
+    "active": true,
+    "skills": [
+      "access",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "be4489c8-04c3-4313-a845-7f74a8a0f3a2",
+    "employee_number": "E10019",
+    "name": "Owen Ibrahim",
+    "email": "owen.ibrahim19@harborwireless.example",
+    "user_name": "oibrahim019",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "L2 Specialist",
+    "region": "Southwest",
+    "active": true,
+    "skills": [
+      "access",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "24c8365f-67dd-41cf-8da2-8193c617ec68",
+    "employee_number": "E10020",
+    "name": "Ethan Evans",
+    "email": "ethan.evans20@harborwireless.example",
+    "user_name": "eevans020",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "L1 Agent",
+    "region": "Southwest",
+    "active": true,
+    "skills": [
+      "access",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "a209c6a7-ffb5-4d17-8b03-87e05b76f589",
+    "employee_number": "E10021",
+    "name": "Amir Patel",
+    "email": "amir.patel21@harborwireless.example",
+    "user_name": "apatel021",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "Senior Engineer",
+    "region": "Great Lakes",
+    "active": true,
+    "skills": [
+      "access",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "ca289bee-3656-40e4-8cee-5fdafb8d1e15",
+    "employee_number": "E10022",
+    "name": "Quinn Walker",
+    "email": "quinn.walker22@harborwireless.example",
+    "user_name": "qwalker022",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "L1 Agent",
+    "region": "Pacific",
+    "active": true,
+    "skills": [
+      "access",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "baccfd8a-1328-449d-b94f-dc5d33ad2150",
+    "employee_number": "E10023",
+    "name": "Owen Garcia",
+    "email": "owen.garcia23@harborwireless.example",
+    "user_name": "ogarcia023",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "L2 Specialist",
+    "region": "Mountain",
+    "active": true,
+    "skills": [
+      "access",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "6e45ead4-386e-4317-b60c-acdc61c4db4e",
+    "employee_number": "E10024",
+    "name": "Carlos Adams",
+    "email": "carlos.adams24@harborwireless.example",
+    "user_name": "cadams024",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "L1 Agent",
+    "region": "Great Lakes",
+    "active": true,
+    "skills": [
+      "access",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "93cf481b-815a-4678-a1af-23eb88c101d2",
+    "employee_number": "E10025",
+    "name": "Sofia Gupta",
+    "email": "sofia.gupta25@harborwireless.example",
+    "user_name": "sgupta025",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "Queue Lead",
+    "region": "Central",
+    "active": true,
+    "skills": [
+      "access",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "87a351aa-2cef-44d6-bbbe-194c84e1783f",
+    "employee_number": "E10026",
+    "name": "Zoe Santos",
+    "email": "zoe.santos26@harborwireless.example",
+    "user_name": "zsantos026",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "L1 Agent",
+    "region": "Midwest",
+    "active": true,
+    "skills": [
+      "access",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "2e1bddae-d23a-4e92-b94c-90e1d6573ff9",
+    "employee_number": "E10027",
+    "name": "Lila Walker",
+    "email": "lila.walker27@harborwireless.example",
+    "user_name": "lwalker027",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "Queue Lead",
+    "region": "Mountain",
+    "active": true,
+    "skills": [
+      "access",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "d935b765-e70e-4e32-93b4-d193d252a4ca",
+    "employee_number": "E10028",
+    "name": "Nina Young",
+    "email": "nina.young28@harborwireless.example",
+    "user_name": "nyoung028",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "L2 Specialist",
+    "region": "Pacific",
+    "active": true,
+    "skills": [
+      "access",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "b4ded1fc-7662-4249-91be-28b008f116ea",
+    "employee_number": "E10029",
+    "name": "Omar Nguyen",
+    "email": "omar.nguyen29@harborwireless.example",
+    "user_name": "onguyen029",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "Senior Engineer",
+    "region": "Mountain",
+    "active": true,
+    "skills": [
+      "access",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "ded87e41-5761-4c29-a07b-c2d1be3484b0",
+    "employee_number": "E10030",
+    "name": "Maya Reed",
+    "email": "maya.reed30@harborwireless.example",
+    "user_name": "mreed030",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "Senior Engineer",
+    "region": "Northeast",
+    "active": true,
+    "skills": [
+      "access",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "d5f7fbd2-b689-481d-b642-46ada65510f6",
+    "employee_number": "E10031",
+    "name": "Paula Gupta",
+    "email": "paula.gupta31@harborwireless.example",
+    "user_name": "pgupta031",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "L1 Agent",
+    "region": "Pacific",
+    "active": true,
+    "skills": [
+      "access",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "0a810cc9-99b9-4fd0-aaaf-72de56a73b17",
+    "employee_number": "E10032",
+    "name": "Tanya Patel",
+    "email": "tanya.patel32@harborwireless.example",
+    "user_name": "tpatel032",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "Senior Engineer",
+    "region": "Great Lakes",
+    "active": true,
+    "skills": [
+      "access",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "cd0cb7aa-5937-4ada-b346-ee59c602fd6c",
+    "employee_number": "E10033",
+    "name": "Hassan Ibrahim",
+    "email": "hassan.ibrahim33@harborwireless.example",
+    "user_name": "hibrahim033",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "L2 Specialist",
+    "region": "Pacific",
+    "active": true,
+    "skills": [
+      "access",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "6d50916d-02e4-459f-bfea-ca13acce1aea",
+    "employee_number": "E10034",
+    "name": "Jasmine Quinn",
+    "email": "jasmine.quinn34@harborwireless.example",
+    "user_name": "jquinn034",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "L2 Specialist",
+    "region": "Central",
+    "active": true,
+    "skills": [
+      "access",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "607300b1-44f0-4376-84d3-bfd95fab213a",
+    "employee_number": "E10035",
+    "name": "Isabel Santos",
+    "email": "isabel.santos35@harborwireless.example",
+    "user_name": "isantos035",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "Queue Lead",
+    "region": "Northeast",
+    "active": true,
+    "skills": [
+      "access",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "85f8ff6b-fd3a-4d67-803d-9fd7b06c63ed",
+    "employee_number": "E10036",
+    "name": "Dana Martin",
+    "email": "dana.martin36@harborwireless.example",
+    "user_name": "dmartin036",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "L2 Specialist",
+    "region": "Central",
+    "active": true,
+    "skills": [
+      "access",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "74480395-95e1-4d9a-bd64-5a0609dd565a",
+    "employee_number": "E10037",
+    "name": "Ravi Lee",
+    "email": "ravi.lee37@harborwireless.example",
+    "user_name": "rlee037",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "Senior Engineer",
+    "region": "Pacific",
+    "active": true,
+    "skills": [
+      "access",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "26f0196c-7c31-4d68-bcd9-dfb5ab3601e5",
+    "employee_number": "E10038",
+    "name": "Tanya Cruz",
+    "email": "tanya.cruz38@harborwireless.example",
+    "user_name": "tcruz038",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "Senior Engineer",
+    "region": "Pacific",
+    "active": true,
+    "skills": [
+      "access",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "5af9a2cf-3608-4df4-b5f2-f4553d46b133",
+    "employee_number": "E10039",
+    "name": "Theo Torres",
+    "email": "theo.torres39@harborwireless.example",
+    "user_name": "ttorres039",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "Queue Lead",
+    "region": "Midwest",
+    "active": true,
+    "skills": [
+      "access",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "d17797b1-c702-4f8e-a972-55ad69aba382",
+    "employee_number": "E10040",
+    "name": "Ben Ortiz",
+    "email": "ben.ortiz40@harborwireless.example",
+    "user_name": "bortiz040",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "L1 Agent",
+    "region": "Northeast",
+    "active": true,
+    "skills": [
+      "access",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "40c58e78-76f4-48e4-b067-a0920de3a8ad",
+    "employee_number": "E10041",
+    "name": "Ian Reed",
+    "email": "ian.reed41@harborwireless.example",
+    "user_name": "ireed041",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "Queue Lead",
+    "region": "Midwest",
+    "active": true,
+    "skills": [
+      "access",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "26c280e2-af50-4e22-92a8-d7ca4442cf12",
+    "employee_number": "E10042",
+    "name": "Jake Evans",
+    "email": "jake.evans42@harborwireless.example",
+    "user_name": "jevans042",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "Senior Engineer",
+    "region": "Southeast",
+    "active": true,
+    "skills": [
+      "access",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "492107d9-4524-4658-9742-65cf7be43013",
+    "employee_number": "E10043",
+    "name": "Hassan Huang",
+    "email": "hassan.huang43@harborwireless.example",
+    "user_name": "hhuang043",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "Queue Lead",
+    "region": "Southwest",
+    "active": true,
+    "skills": [
+      "access",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "979b64ee-ad3f-4d21-a08e-5ef579608cd3",
+    "employee_number": "E10044",
+    "name": "Amir Reed",
+    "email": "amir.reed44@harborwireless.example",
+    "user_name": "areed044",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "L2 Specialist",
+    "region": "Great Lakes",
+    "active": true,
+    "skills": [
+      "access",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "9420bf7e-44e3-4431-be16-286e462d2b4a",
+    "employee_number": "E10045",
+    "name": "Sara Evans",
+    "email": "sara.evans45@harborwireless.example",
+    "user_name": "sevans045",
+    "assignment_group": "HW-Access-Identity",
+    "category": "access",
+    "role": "Queue Lead",
+    "region": "Central",
+    "active": true,
+    "skills": [
+      "access",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "9a9c327d-b36f-47d4-8589-241956baa8df",
+    "employee_number": "E10046",
+    "name": "Yara Chen",
+    "email": "yara.chen46@harborwireless.example",
+    "user_name": "ychen046",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Senior Engineer",
+    "region": "Central",
+    "active": true,
+    "skills": [
+      "hardware",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "4ca0a1ae-52d6-4949-912b-cf9fbb5f1ca1",
+    "employee_number": "E10047",
+    "name": "Jasmine Foster",
+    "email": "jasmine.foster47@harborwireless.example",
+    "user_name": "jfoster047",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "L2 Specialist",
+    "region": "Mountain",
+    "active": true,
+    "skills": [
+      "hardware",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "186a555d-6a23-48d7-9148-51d4c3564cde",
+    "employee_number": "E10048",
+    "name": "Ethan Singh",
+    "email": "ethan.singh48@harborwireless.example",
+    "user_name": "esingh048",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "L1 Agent",
+    "region": "Pacific",
+    "active": true,
+    "skills": [
+      "hardware",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "5319e354-c7cc-463f-8e65-7064a7873262",
+    "employee_number": "E10049",
+    "name": "Alex Davis",
+    "email": "alex.davis49@harborwireless.example",
+    "user_name": "adavis049",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "L2 Specialist",
+    "region": "Central",
+    "active": true,
+    "skills": [
+      "hardware",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "ae9289bb-5313-4bc0-9138-09045f3b95ab",
+    "employee_number": "E10050",
+    "name": "Ethan Walker",
+    "email": "ethan.walker50@harborwireless.example",
+    "user_name": "ewalker050",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Senior Engineer",
+    "region": "Central",
+    "active": true,
+    "skills": [
+      "hardware",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "3fc16a8e-57d9-463d-a34d-ee8abd287933",
+    "employee_number": "E10051",
+    "name": "Amir Santos",
+    "email": "amir.santos51@harborwireless.example",
+    "user_name": "asantos051",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "L1 Agent",
+    "region": "Pacific",
+    "active": true,
+    "skills": [
+      "hardware",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "67b4cd9d-a29e-43ee-84e9-953b7443c558",
+    "employee_number": "E10052",
+    "name": "Miguel Martin",
+    "email": "miguel.martin52@harborwireless.example",
+    "user_name": "mmartin052",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "L2 Specialist",
+    "region": "Midwest",
+    "active": true,
+    "skills": [
+      "hardware",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "a9def724-d5a8-4fa4-824e-27a3ab1ac4c3",
+    "employee_number": "E10053",
+    "name": "Lila Huang",
+    "email": "lila.huang53@harborwireless.example",
+    "user_name": "lhuang053",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Senior Engineer",
+    "region": "Pacific",
+    "active": true,
+    "skills": [
+      "hardware",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "4703cdc8-611c-4fa7-99b1-934a8f0ab419",
+    "employee_number": "E10054",
+    "name": "Zoe Patel",
+    "email": "zoe.patel54@harborwireless.example",
+    "user_name": "zpatel054",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Senior Engineer",
+    "region": "Southeast",
+    "active": true,
+    "skills": [
+      "hardware",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "0b0149fa-b88f-4bbc-9c07-c91c33f38e5b",
+    "employee_number": "E10055",
+    "name": "Sam Adams",
+    "email": "sam.adams55@harborwireless.example",
+    "user_name": "sadams055",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Queue Lead",
+    "region": "Central",
+    "active": true,
+    "skills": [
+      "hardware",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "2c8e25cf-3bf3-4a1c-92bb-1687a14e5d48",
+    "employee_number": "E10056",
+    "name": "Mei Wright",
+    "email": "mei.wright56@harborwireless.example",
+    "user_name": "mwright056",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Queue Lead",
+    "region": "Southwest",
+    "active": true,
+    "skills": [
+      "hardware",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "f418da50-c498-4575-b911-5e6b72c48f75",
+    "employee_number": "E10057",
+    "name": "Aisha Baker",
+    "email": "aisha.baker57@harborwireless.example",
+    "user_name": "abaker057",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Senior Engineer",
+    "region": "Pacific",
+    "active": true,
+    "skills": [
+      "hardware",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "3787a466-c980-4c0e-95ae-c6b0e6449caa",
+    "employee_number": "E10058",
+    "name": "Isabel Adams",
+    "email": "isabel.adams58@harborwireless.example",
+    "user_name": "iadams058",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Queue Lead",
+    "region": "Great Lakes",
+    "active": true,
+    "skills": [
+      "hardware",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "97ae4228-11f7-4885-8d5f-0b0443c75dd7",
+    "employee_number": "E10059",
+    "name": "Sofia Huang",
+    "email": "sofia.huang59@harborwireless.example",
+    "user_name": "shuang059",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "L1 Agent",
+    "region": "Great Lakes",
+    "active": true,
+    "skills": [
+      "hardware",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "dc1da05e-516a-4d4d-aadc-624b4f40b525",
+    "employee_number": "E10060",
+    "name": "Carlos Santos",
+    "email": "carlos.santos60@harborwireless.example",
+    "user_name": "csantos060",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Senior Engineer",
+    "region": "Northeast",
+    "active": true,
+    "skills": [
+      "hardware",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "e87a992a-594e-48c2-97d0-dcb88223052d",
+    "employee_number": "E10061",
+    "name": "Diego Kim",
+    "email": "diego.kim61@harborwireless.example",
+    "user_name": "dkim061",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "L1 Agent",
+    "region": "Midwest",
+    "active": true,
+    "skills": [
+      "hardware",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "19fc4bc5-51ee-45a3-9d48-97bcaaba7a8d",
+    "employee_number": "E10062",
+    "name": "Quinn Harris",
+    "email": "quinn.harris62@harborwireless.example",
+    "user_name": "qharris062",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Queue Lead",
+    "region": "Mountain",
+    "active": true,
+    "skills": [
+      "hardware",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "14918383-2637-4de7-a6fd-05ec4d90eef6",
+    "employee_number": "E10063",
+    "name": "Kate Zhang",
+    "email": "kate.zhang63@harborwireless.example",
+    "user_name": "kzhang063",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Senior Engineer",
+    "region": "Central",
+    "active": true,
+    "skills": [
+      "hardware",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "e42962b5-cf11-4d62-92b7-21895309377c",
+    "employee_number": "E10064",
+    "name": "Ravi Baker",
+    "email": "ravi.baker64@harborwireless.example",
+    "user_name": "rbaker064",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "L1 Agent",
+    "region": "Pacific",
+    "active": true,
+    "skills": [
+      "hardware",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "82303661-772e-4d27-9d2e-a4b84a8a33fc",
+    "employee_number": "E10065",
+    "name": "Ravi Diaz",
+    "email": "ravi.diaz65@harborwireless.example",
+    "user_name": "rdiaz065",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Senior Engineer",
+    "region": "Midwest",
+    "active": true,
+    "skills": [
+      "hardware",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "e18bbd67-2688-4c9f-84fe-dc4f59946c32",
+    "employee_number": "E10066",
+    "name": "Noah Chen",
+    "email": "noah.chen66@harborwireless.example",
+    "user_name": "nchen066",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Queue Lead",
+    "region": "Northeast",
+    "active": true,
+    "skills": [
+      "hardware",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "4956b034-1058-42f4-875b-2a8139470e37",
+    "employee_number": "E10067",
+    "name": "Kenji Diaz",
+    "email": "kenji.diaz67@harborwireless.example",
+    "user_name": "kdiaz067",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Queue Lead",
+    "region": "Midwest",
+    "active": true,
+    "skills": [
+      "hardware",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "f90817b4-61a4-409f-b48c-fec13ee4c022",
+    "employee_number": "E10068",
+    "name": "Grace Lopez",
+    "email": "grace.lopez68@harborwireless.example",
+    "user_name": "glopez068",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "L2 Specialist",
+    "region": "Southwest",
+    "active": true,
+    "skills": [
+      "hardware",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "3f233bb2-583b-4cfb-bc06-4adbc99579e0",
+    "employee_number": "E10069",
+    "name": "Emma Chen",
+    "email": "emma.chen69@harborwireless.example",
+    "user_name": "echen069",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Senior Engineer",
+    "region": "Central",
+    "active": true,
+    "skills": [
+      "hardware",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "428bb84c-32ef-4d3b-a075-42d48cb789c5",
+    "employee_number": "E10070",
+    "name": "Alex Adams",
+    "email": "alex.adams70@harborwireless.example",
+    "user_name": "aadams070",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Senior Engineer",
+    "region": "Southeast",
+    "active": true,
+    "skills": [
+      "hardware",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "0bf779d6-b715-49d7-b55e-9e56a20c7f67",
+    "employee_number": "E10071",
+    "name": "Jasmine Davis",
+    "email": "jasmine.davis71@harborwireless.example",
+    "user_name": "jdavis071",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Senior Engineer",
+    "region": "Midwest",
+    "active": true,
+    "skills": [
+      "hardware",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "b1e69509-c591-475e-8c26-8fdf043adf82",
+    "employee_number": "E10072",
+    "name": "Fatima Evans",
+    "email": "fatima.evans72@harborwireless.example",
+    "user_name": "fevans072",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Senior Engineer",
+    "region": "Pacific",
+    "active": true,
+    "skills": [
+      "hardware",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "8b99089d-8ea6-4a7b-82db-f323e5075b91",
+    "employee_number": "E10073",
+    "name": "Paula Davis",
+    "email": "paula.davis73@harborwireless.example",
+    "user_name": "pdavis073",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "L2 Specialist",
+    "region": "Midwest",
+    "active": true,
+    "skills": [
+      "hardware",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "78c00089-ec44-496e-a246-bace0e92dcaf",
+    "employee_number": "E10074",
+    "name": "Riley Santos",
+    "email": "riley.santos74@harborwireless.example",
+    "user_name": "rsantos074",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Senior Engineer",
+    "region": "Central",
+    "active": true,
+    "skills": [
+      "hardware",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "05a4dd82-0292-4789-8ef4-9bca7fa231ef",
+    "employee_number": "E10075",
+    "name": "Elena Ibrahim",
+    "email": "elena.ibrahim75@harborwireless.example",
+    "user_name": "eibrahim075",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Queue Lead",
+    "region": "Mountain",
+    "active": true,
+    "skills": [
+      "hardware",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "20cca829-ebf8-42b7-8325-fc18e36b9380",
+    "employee_number": "E10076",
+    "name": "Luis Adams",
+    "email": "luis.adams76@harborwireless.example",
+    "user_name": "ladams076",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "L1 Agent",
+    "region": "Great Lakes",
+    "active": true,
+    "skills": [
+      "hardware",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "84842fb2-2344-495f-8a5a-a339c74ee4c8",
+    "employee_number": "E10077",
+    "name": "Elena Evans",
+    "email": "elena.evans77@harborwireless.example",
+    "user_name": "eevans077",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Senior Engineer",
+    "region": "Southwest",
+    "active": true,
+    "skills": [
+      "hardware",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "cdb80ce3-9204-43ce-8132-dd5d670c8eb9",
+    "employee_number": "E10078",
+    "name": "Noah Martin",
+    "email": "noah.martin78@harborwireless.example",
+    "user_name": "nmartin078",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Senior Engineer",
+    "region": "Southeast",
+    "active": true,
+    "skills": [
+      "hardware",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "4389e007-18a9-4fea-b1c4-0eab7bd5dea8",
+    "employee_number": "E10079",
+    "name": "Chris Zhang",
+    "email": "chris.zhang79@harborwireless.example",
+    "user_name": "czhang079",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Queue Lead",
+    "region": "Southeast",
+    "active": true,
+    "skills": [
+      "hardware",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "f43a38c1-6bd6-4682-9ae3-5441d3650e81",
+    "employee_number": "E10080",
+    "name": "Jasmine Lopez",
+    "email": "jasmine.lopez80@harborwireless.example",
+    "user_name": "jlopez080",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Senior Engineer",
+    "region": "Southeast",
+    "active": true,
+    "skills": [
+      "hardware",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "5c0065c7-8e70-4c20-9da6-ee111ab136d3",
+    "employee_number": "E10081",
+    "name": "Zoe Harris",
+    "email": "zoe.harris81@harborwireless.example",
+    "user_name": "zharris081",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "L1 Agent",
+    "region": "Pacific",
+    "active": true,
+    "skills": [
+      "hardware",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "2cccbd34-ed48-49a4-853f-ef75ba8b24cf",
+    "employee_number": "E10082",
+    "name": "Paula Ibrahim",
+    "email": "paula.ibrahim82@harborwireless.example",
+    "user_name": "pibrahim082",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Queue Lead",
+    "region": "Mountain",
+    "active": true,
+    "skills": [
+      "hardware",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "16fc62ba-a72a-4692-8634-a5f07ace1e81",
+    "employee_number": "E10083",
+    "name": "Nina Diaz",
+    "email": "nina.diaz83@harborwireless.example",
+    "user_name": "ndiaz083",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Queue Lead",
+    "region": "Central",
+    "active": true,
+    "skills": [
+      "hardware",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "65919005-6321-4c27-bd18-4709d83479f9",
+    "employee_number": "E10084",
+    "name": "Alex Ortiz",
+    "email": "alex.ortiz84@harborwireless.example",
+    "user_name": "aortiz084",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "L1 Agent",
+    "region": "Northeast",
+    "active": true,
+    "skills": [
+      "hardware",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "4f0e3812-b3e1-441d-94c7-782d9ac0ad52",
+    "employee_number": "E10085",
+    "name": "Camila Ortiz",
+    "email": "camila.ortiz85@harborwireless.example",
+    "user_name": "cortiz085",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "L1 Agent",
+    "region": "Northeast",
+    "active": true,
+    "skills": [
+      "hardware",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "9e13795a-1946-4803-9da8-511249da7e4d",
+    "employee_number": "E10086",
+    "name": "Amir Ibrahim",
+    "email": "amir.ibrahim86@harborwireless.example",
+    "user_name": "aibrahim086",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Senior Engineer",
+    "region": "Southwest",
+    "active": true,
+    "skills": [
+      "hardware",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "ad7aefcb-98d3-4065-9b76-519e1deae0ba",
+    "employee_number": "E10087",
+    "name": "Aisha Davis",
+    "email": "aisha.davis87@harborwireless.example",
+    "user_name": "adavis087",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Senior Engineer",
+    "region": "Mountain",
+    "active": true,
+    "skills": [
+      "hardware",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "ee831a5f-2c91-475e-a056-260c40b22f85",
+    "employee_number": "E10088",
+    "name": "Kai Young",
+    "email": "kai.young88@harborwireless.example",
+    "user_name": "kyoung088",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Senior Engineer",
+    "region": "Great Lakes",
+    "active": true,
+    "skills": [
+      "hardware",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "c0f5f67e-3641-4e55-850f-dbf2f393c985",
+    "employee_number": "E10089",
+    "name": "Hassan Gupta",
+    "email": "hassan.gupta89@harborwireless.example",
+    "user_name": "hgupta089",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Senior Engineer",
+    "region": "Northeast",
+    "active": true,
+    "skills": [
+      "hardware",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "7881bd63-c0a4-4319-b831-ae125a2fd5c7",
+    "employee_number": "E10090",
+    "name": "Omar Chen",
+    "email": "omar.chen90@harborwireless.example",
+    "user_name": "ochen090",
+    "assignment_group": "HW-Endpoint-Hardware",
+    "category": "hardware",
+    "role": "Queue Lead",
+    "region": "Southeast",
+    "active": true,
+    "skills": [
+      "hardware",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "9b47fdfe-9418-4e0e-b88f-5ce4b4d96215",
+    "employee_number": "E10091",
+    "name": "Miguel Cruz",
+    "email": "miguel.cruz91@harborwireless.example",
+    "user_name": "mcruz091",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "Queue Lead",
+    "region": "Southeast",
+    "active": true,
+    "skills": [
+      "network",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "6ae41372-a84a-4bdf-a33f-a9c54b153312",
+    "employee_number": "E10092",
+    "name": "Sofia Quinn",
+    "email": "sofia.quinn92@harborwireless.example",
+    "user_name": "squinn092",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "Queue Lead",
+    "region": "Mountain",
+    "active": true,
+    "skills": [
+      "network",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "d0216fe6-32d7-47a6-b058-781116daea7c",
+    "employee_number": "E10093",
+    "name": "Paula Gupta",
+    "email": "paula.gupta93@harborwireless.example",
+    "user_name": "pgupta093",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "L1 Agent",
+    "region": "Southeast",
+    "active": true,
+    "skills": [
+      "network",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "b8ffa3fb-5bee-4cc1-bdb5-3937e3c93972",
+    "employee_number": "E10094",
+    "name": "Sara Huang",
+    "email": "sara.huang94@harborwireless.example",
+    "user_name": "shuang094",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "L1 Agent",
+    "region": "Pacific",
+    "active": true,
+    "skills": [
+      "network",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "8e1c1c80-63c1-48ae-93fa-1f6d0fc1e739",
+    "employee_number": "E10095",
+    "name": "Sam Nguyen",
+    "email": "sam.nguyen95@harborwireless.example",
+    "user_name": "snguyen095",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "Queue Lead",
+    "region": "Great Lakes",
+    "active": true,
+    "skills": [
+      "network",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "5fbb7895-b57d-4ede-ae3e-be187709125b",
+    "employee_number": "E10096",
+    "name": "Maya Zhang",
+    "email": "maya.zhang96@harborwireless.example",
+    "user_name": "mzhang096",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "Senior Engineer",
+    "region": "Central",
+    "active": true,
+    "skills": [
+      "network",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "8afc154b-7bdc-46aa-aac8-08b122d89644",
+    "employee_number": "E10097",
+    "name": "Paula Lee",
+    "email": "paula.lee97@harborwireless.example",
+    "user_name": "plee097",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "L1 Agent",
+    "region": "Great Lakes",
+    "active": true,
+    "skills": [
+      "network",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "c6bd96df-17fc-4adf-9f38-533cf2caca7a",
+    "employee_number": "E10098",
+    "name": "Uma Santos",
+    "email": "uma.santos98@harborwireless.example",
+    "user_name": "usantos098",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "Senior Engineer",
+    "region": "Central",
+    "active": true,
+    "skills": [
+      "network",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "8c5d31df-8c14-4ef7-a2bf-970e9d852ed4",
+    "employee_number": "E10099",
+    "name": "Ben Torres",
+    "email": "ben.torres99@harborwireless.example",
+    "user_name": "btorres099",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "Senior Engineer",
+    "region": "Great Lakes",
+    "active": true,
+    "skills": [
+      "network",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "0919d2cf-c73b-41e9-9564-73ab3c943835",
+    "employee_number": "E10100",
+    "name": "Theo Evans",
+    "email": "theo.evans100@harborwireless.example",
+    "user_name": "tevans100",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "L2 Specialist",
+    "region": "Central",
+    "active": true,
+    "skills": [
+      "network",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "deb236af-004f-4002-9626-41afb5d783e1",
+    "employee_number": "E10101",
+    "name": "Omar Davis",
+    "email": "omar.davis101@harborwireless.example",
+    "user_name": "odavis101",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "L2 Specialist",
+    "region": "Southwest",
+    "active": true,
+    "skills": [
+      "network",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "f1e299b2-2b99-446f-aae3-5de81214fcb6",
+    "employee_number": "E10102",
+    "name": "Fatima Lee",
+    "email": "fatima.lee102@harborwireless.example",
+    "user_name": "flee102",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "L2 Specialist",
+    "region": "Northeast",
+    "active": true,
+    "skills": [
+      "network",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "a63c97b0-b380-42b5-a412-0b224473d258",
+    "employee_number": "E10103",
+    "name": "Sara Singh",
+    "email": "sara.singh103@harborwireless.example",
+    "user_name": "ssingh103",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "Queue Lead",
+    "region": "Great Lakes",
+    "active": true,
+    "skills": [
+      "network",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "de1bfa7c-2357-4c32-a7ba-b551775b1637",
+    "employee_number": "E10104",
+    "name": "Elena Walker",
+    "email": "elena.walker104@harborwireless.example",
+    "user_name": "ewalker104",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "Queue Lead",
+    "region": "Great Lakes",
+    "active": true,
+    "skills": [
+      "network",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "f323a4f1-e114-4d14-a39e-ce47355bac59",
+    "employee_number": "E10105",
+    "name": "Amir Santos",
+    "email": "amir.santos105@harborwireless.example",
+    "user_name": "asantos105",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "L1 Agent",
+    "region": "Pacific",
+    "active": true,
+    "skills": [
+      "network",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "a6057ae0-1b4b-40ce-8c69-81e814a12925",
+    "employee_number": "E10106",
+    "name": "Tanya Martin",
+    "email": "tanya.martin106@harborwireless.example",
+    "user_name": "tmartin106",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "L1 Agent",
+    "region": "Midwest",
+    "active": true,
+    "skills": [
+      "network",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "7bdc8d50-fef1-4cc6-8c57-52697be511ba",
+    "employee_number": "E10107",
+    "name": "Ana Harris",
+    "email": "ana.harris107@harborwireless.example",
+    "user_name": "aharris107",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "Queue Lead",
+    "region": "Midwest",
+    "active": true,
+    "skills": [
+      "network",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "6122ee45-53ed-4299-af67-8771b482a34e",
+    "employee_number": "E10108",
+    "name": "Sofia Singh",
+    "email": "sofia.singh108@harborwireless.example",
+    "user_name": "ssingh108",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "Senior Engineer",
+    "region": "Pacific",
+    "active": true,
+    "skills": [
+      "network",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "d088c9ba-f0e9-4a69-bed5-c889ce204bb3",
+    "employee_number": "E10109",
+    "name": "Ava Garcia",
+    "email": "ava.garcia109@harborwireless.example",
+    "user_name": "agarcia109",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "L1 Agent",
+    "region": "Southeast",
+    "active": true,
+    "skills": [
+      "network",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "22bcc1a6-9f9d-407e-b05a-7431df0a035d",
+    "employee_number": "E10110",
+    "name": "Sara Reed",
+    "email": "sara.reed110@harborwireless.example",
+    "user_name": "sreed110",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "Senior Engineer",
+    "region": "Great Lakes",
+    "active": true,
+    "skills": [
+      "network",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "95b15752-65aa-49f1-841b-47e2e9a7b016",
+    "employee_number": "E10111",
+    "name": "Chris Walker",
+    "email": "chris.walker111@harborwireless.example",
+    "user_name": "cwalker111",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "Senior Engineer",
+    "region": "Midwest",
+    "active": true,
+    "skills": [
+      "network",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "04200032-7a2b-4b91-ba83-61dc3e250db2",
+    "employee_number": "E10112",
+    "name": "Wei Young",
+    "email": "wei.young112@harborwireless.example",
+    "user_name": "wyoung112",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "L1 Agent",
+    "region": "Southwest",
+    "active": true,
+    "skills": [
+      "network",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "8cc5699f-f9f8-4cae-8d95-f5b3f0407bbd",
+    "employee_number": "E10113",
+    "name": "Jake Cruz",
+    "email": "jake.cruz113@harborwireless.example",
+    "user_name": "jcruz113",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "Senior Engineer",
+    "region": "Southeast",
+    "active": true,
+    "skills": [
+      "network",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "c525dfbb-8cf8-43d7-bfae-5a357ad36818",
+    "employee_number": "E10114",
+    "name": "Miguel Baker",
+    "email": "miguel.baker114@harborwireless.example",
+    "user_name": "mbaker114",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "Senior Engineer",
+    "region": "Southeast",
+    "active": true,
+    "skills": [
+      "network",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "53cc9ced-f0d4-43c6-a067-74f8d98180b7",
+    "employee_number": "E10115",
+    "name": "Ava Walker",
+    "email": "ava.walker115@harborwireless.example",
+    "user_name": "awalker115",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "Senior Engineer",
+    "region": "Southwest",
+    "active": true,
+    "skills": [
+      "network",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "1fcb0e52-005e-4c64-9dd4-662b4476911b",
+    "employee_number": "E10116",
+    "name": "Sofia Garcia",
+    "email": "sofia.garcia116@harborwireless.example",
+    "user_name": "sgarcia116",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "L1 Agent",
+    "region": "Pacific",
+    "active": true,
+    "skills": [
+      "network",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "a3bdb79b-d4ca-47f3-8cbe-cba550ac1a7b",
+    "employee_number": "E10117",
+    "name": "Ethan Davis",
+    "email": "ethan.davis117@harborwireless.example",
+    "user_name": "edavis117",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "Senior Engineer",
+    "region": "Great Lakes",
+    "active": true,
+    "skills": [
+      "network",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "7770d784-825b-4683-9fe4-4550b0c2ea6f",
+    "employee_number": "E10118",
+    "name": "Mei Torres",
+    "email": "mei.torres118@harborwireless.example",
+    "user_name": "mtorres118",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "L1 Agent",
+    "region": "Southwest",
+    "active": true,
+    "skills": [
+      "network",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "e49672c7-a7c1-4161-b021-3c670b91cde6",
+    "employee_number": "E10119",
+    "name": "Sam Davis",
+    "email": "sam.davis119@harborwireless.example",
+    "user_name": "sdavis119",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "L2 Specialist",
+    "region": "Northeast",
+    "active": true,
+    "skills": [
+      "network",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "46750a42-5e00-44c5-934c-a833e426b29b",
+    "employee_number": "E10120",
+    "name": "Zoe Quinn",
+    "email": "zoe.quinn120@harborwireless.example",
+    "user_name": "zquinn120",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "L2 Specialist",
+    "region": "Pacific",
+    "active": true,
+    "skills": [
+      "network",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "0a3c27f3-d946-4515-a84b-855feb3822db",
+    "employee_number": "E10121",
+    "name": "Ben Jackson",
+    "email": "ben.jackson121@harborwireless.example",
+    "user_name": "bjackson121",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "Senior Engineer",
+    "region": "Southwest",
+    "active": true,
+    "skills": [
+      "network",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "81349111-20f2-474a-a34c-ad0531577c55",
+    "employee_number": "E10122",
+    "name": "Isabel Lopez",
+    "email": "isabel.lopez122@harborwireless.example",
+    "user_name": "ilopez122",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "L1 Agent",
+    "region": "Northeast",
+    "active": true,
+    "skills": [
+      "network",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "fada1f92-caad-4e75-a93a-16307c45b673",
+    "employee_number": "E10123",
+    "name": "Ian Cruz",
+    "email": "ian.cruz123@harborwireless.example",
+    "user_name": "icruz123",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "Senior Engineer",
+    "region": "Central",
+    "active": true,
+    "skills": [
+      "network",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "dcc7ea0c-fa43-417e-94aa-9d347a35a842",
+    "employee_number": "E10124",
+    "name": "Uma Perez",
+    "email": "uma.perez124@harborwireless.example",
+    "user_name": "uperez124",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "Senior Engineer",
+    "region": "Midwest",
+    "active": true,
+    "skills": [
+      "network",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "155c73da-e02d-4f19-b592-9aea97fd49a8",
+    "employee_number": "E10125",
+    "name": "Tanya Nguyen",
+    "email": "tanya.nguyen125@harborwireless.example",
+    "user_name": "tnguyen125",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "Senior Engineer",
+    "region": "Northeast",
+    "active": true,
+    "skills": [
+      "network",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "ee17cde5-a04e-43f7-a17b-936f4f7e4159",
+    "employee_number": "E10126",
+    "name": "Ben Garcia",
+    "email": "ben.garcia126@harborwireless.example",
+    "user_name": "bgarcia126",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "L2 Specialist",
+    "region": "Southeast",
+    "active": true,
+    "skills": [
+      "network",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "8eb4630d-9e46-42fb-8639-c5cafcb72a7b",
+    "employee_number": "E10127",
+    "name": "Aisha Young",
+    "email": "aisha.young127@harborwireless.example",
+    "user_name": "ayoung127",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "Senior Engineer",
+    "region": "Southwest",
+    "active": true,
+    "skills": [
+      "network",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "bcf5c576-5ed3-43fd-ae88-78c92f58d560",
+    "employee_number": "E10128",
+    "name": "Kate Santos",
+    "email": "kate.santos128@harborwireless.example",
+    "user_name": "ksantos128",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "Queue Lead",
+    "region": "Southeast",
+    "active": true,
+    "skills": [
+      "network",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "5432d6e4-d2de-4f06-82fa-c816f1841151",
+    "employee_number": "E10129",
+    "name": "Alex Santos",
+    "email": "alex.santos129@harborwireless.example",
+    "user_name": "asantos129",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "L2 Specialist",
+    "region": "Mountain",
+    "active": true,
+    "skills": [
+      "network",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "62e10748-2d5c-4f25-bb89-94344836e6db",
+    "employee_number": "E10130",
+    "name": "Dana Ortiz",
+    "email": "dana.ortiz130@harborwireless.example",
+    "user_name": "dortiz130",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "L1 Agent",
+    "region": "Southwest",
+    "active": true,
+    "skills": [
+      "network",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "54b476ce-8f55-4d55-916b-18e2758dd05f",
+    "employee_number": "E10131",
+    "name": "Kate Evans",
+    "email": "kate.evans131@harborwireless.example",
+    "user_name": "kevans131",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "Queue Lead",
+    "region": "Southeast",
+    "active": true,
+    "skills": [
+      "network",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "e45e1e19-65e4-470c-bbc0-feca5b393f23",
+    "employee_number": "E10132",
+    "name": "Chris Young",
+    "email": "chris.young132@harborwireless.example",
+    "user_name": "cyoung132",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "Queue Lead",
+    "region": "Southwest",
+    "active": true,
+    "skills": [
+      "network",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "d38ef8ac-a126-4de9-9b00-611eb050bbc9",
+    "employee_number": "E10133",
+    "name": "Quinn Perez",
+    "email": "quinn.perez133@harborwireless.example",
+    "user_name": "qperez133",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "Queue Lead",
+    "region": "Pacific",
+    "active": true,
+    "skills": [
+      "network",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "35510929-5e31-424f-86da-b5f48dd77921",
+    "employee_number": "E10134",
+    "name": "Chris Lopez",
+    "email": "chris.lopez134@harborwireless.example",
+    "user_name": "clopez134",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "L2 Specialist",
+    "region": "Pacific",
+    "active": true,
+    "skills": [
+      "network",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "1ab94cd3-d420-4604-a8f9-408e951d9760",
+    "employee_number": "E10135",
+    "name": "Maya Harris",
+    "email": "maya.harris135@harborwireless.example",
+    "user_name": "mharris135",
+    "assignment_group": "HW-Network-Ops",
+    "category": "network",
+    "role": "L1 Agent",
+    "region": "Southwest",
+    "active": true,
+    "skills": [
+      "network",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "9587bc8f-85d6-4004-8622-2ce832194efd",
+    "employee_number": "E10136",
+    "name": "Andre Zhang",
+    "email": "andre.zhang136@harborwireless.example",
+    "user_name": "azhang136",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "Queue Lead",
+    "region": "Pacific",
+    "active": true,
+    "skills": [
+      "applications",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "42d9f590-95ea-488d-8ebb-7a71bfe1eb84",
+    "employee_number": "E10137",
+    "name": "Noah Gupta",
+    "email": "noah.gupta137@harborwireless.example",
+    "user_name": "ngupta137",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "Queue Lead",
+    "region": "Southwest",
+    "active": true,
+    "skills": [
+      "applications",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "7f57db59-ca79-4d08-abc8-228838167f83",
+    "employee_number": "E10138",
+    "name": "Andre Torres",
+    "email": "andre.torres138@harborwireless.example",
+    "user_name": "atorres138",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "L2 Specialist",
+    "region": "Central",
+    "active": true,
+    "skills": [
+      "applications",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "1590def4-48c9-4e60-9b09-c114d2afe6c7",
+    "employee_number": "E10139",
+    "name": "Jasmine Walker",
+    "email": "jasmine.walker139@harborwireless.example",
+    "user_name": "jwalker139",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "Queue Lead",
+    "region": "Mountain",
+    "active": true,
+    "skills": [
+      "applications",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "360c5114-41e3-4856-a575-2eea10ba1d03",
+    "employee_number": "E10140",
+    "name": "Kai Young",
+    "email": "kai.young140@harborwireless.example",
+    "user_name": "kyoung140",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "Queue Lead",
+    "region": "Great Lakes",
+    "active": true,
+    "skills": [
+      "applications",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "e0bb6bc4-3783-43cf-892d-4993cb4a912c",
+    "employee_number": "E10141",
+    "name": "Fatima Patel",
+    "email": "fatima.patel141@harborwireless.example",
+    "user_name": "fpatel141",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "L2 Specialist",
+    "region": "Mountain",
+    "active": true,
+    "skills": [
+      "applications",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "b3738e15-96a5-4e84-9225-dfd31d801486",
+    "employee_number": "E10142",
+    "name": "Sofia Huang",
+    "email": "sofia.huang142@harborwireless.example",
+    "user_name": "shuang142",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "Senior Engineer",
+    "region": "Southwest",
+    "active": true,
+    "skills": [
+      "applications",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "f9262a8a-508d-4dc8-99d7-90f3e9da85da",
+    "employee_number": "E10143",
+    "name": "Grace Walker",
+    "email": "grace.walker143@harborwireless.example",
+    "user_name": "gwalker143",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "Queue Lead",
+    "region": "Mountain",
+    "active": true,
+    "skills": [
+      "applications",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "6cb863c8-514d-421e-b515-4ef38acfefd7",
+    "employee_number": "E10144",
+    "name": "Priya Gupta",
+    "email": "priya.gupta144@harborwireless.example",
+    "user_name": "pgupta144",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "L1 Agent",
+    "region": "Great Lakes",
+    "active": true,
+    "skills": [
+      "applications",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "bbb6db60-4c6e-4cf0-8662-0b492035479e",
+    "employee_number": "E10145",
+    "name": "Isabel Ibrahim",
+    "email": "isabel.ibrahim145@harborwireless.example",
+    "user_name": "iibrahim145",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "Senior Engineer",
+    "region": "Southwest",
+    "active": true,
+    "skills": [
+      "applications",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "5b7f3dcd-e638-452b-8b25-29a53de91ca9",
+    "employee_number": "E10146",
+    "name": "Mei Wright",
+    "email": "mei.wright146@harborwireless.example",
+    "user_name": "mwright146",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "L1 Agent",
+    "region": "Northeast",
+    "active": true,
+    "skills": [
+      "applications",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "1161f886-c00d-40f6-8862-339e444a63e6",
+    "employee_number": "E10147",
+    "name": "Nina Young",
+    "email": "nina.young147@harborwireless.example",
+    "user_name": "nyoung147",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "L1 Agent",
+    "region": "Midwest",
+    "active": true,
+    "skills": [
+      "applications",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "4914f82b-c0cb-4b3d-a390-67e7831f8908",
+    "employee_number": "E10148",
+    "name": "Isabel Foster",
+    "email": "isabel.foster148@harborwireless.example",
+    "user_name": "ifoster148",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "Queue Lead",
+    "region": "Central",
+    "active": true,
+    "skills": [
+      "applications",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "b2efd201-d71c-4025-8f8d-352f03978926",
+    "employee_number": "E10149",
+    "name": "Ian Baker",
+    "email": "ian.baker149@harborwireless.example",
+    "user_name": "ibaker149",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "L2 Specialist",
+    "region": "Pacific",
+    "active": true,
+    "skills": [
+      "applications",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "963fd79a-bb10-44e8-b256-1905d8a2950d",
+    "employee_number": "E10150",
+    "name": "Kenji Lopez",
+    "email": "kenji.lopez150@harborwireless.example",
+    "user_name": "klopez150",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "Queue Lead",
+    "region": "Great Lakes",
+    "active": true,
+    "skills": [
+      "applications",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "b9b1cb99-fdac-47fd-aa8f-5c97715d9214",
+    "employee_number": "E10151",
+    "name": "Aisha Perez",
+    "email": "aisha.perez151@harborwireless.example",
+    "user_name": "aperez151",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "L2 Specialist",
+    "region": "Northeast",
+    "active": true,
+    "skills": [
+      "applications",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "fb433f5d-b2af-4292-ae9b-126f52eceabc",
+    "employee_number": "E10152",
+    "name": "Owen Quinn",
+    "email": "owen.quinn152@harborwireless.example",
+    "user_name": "oquinn152",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "L2 Specialist",
+    "region": "Central",
+    "active": true,
+    "skills": [
+      "applications",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "98af4bb8-239e-43b2-b8e0-29e6cc05e25f",
+    "employee_number": "E10153",
+    "name": "Diego Chen",
+    "email": "diego.chen153@harborwireless.example",
+    "user_name": "dchen153",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "Senior Engineer",
+    "region": "Great Lakes",
+    "active": true,
+    "skills": [
+      "applications",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "f9feff44-4548-470f-a44e-bff473cb6eb1",
+    "employee_number": "E10154",
+    "name": "Aisha Martin",
+    "email": "aisha.martin154@harborwireless.example",
+    "user_name": "amartin154",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "L1 Agent",
+    "region": "Mountain",
+    "active": true,
+    "skills": [
+      "applications",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "40448ab3-99a7-40ed-82c1-42cf5feb6e76",
+    "employee_number": "E10155",
+    "name": "Quinn Gupta",
+    "email": "quinn.gupta155@harborwireless.example",
+    "user_name": "qgupta155",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "Queue Lead",
+    "region": "Pacific",
+    "active": true,
+    "skills": [
+      "applications",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "328e2e38-9de3-475a-b6c6-bd7ccd8a7115",
+    "employee_number": "E10156",
+    "name": "Tanya Garcia",
+    "email": "tanya.garcia156@harborwireless.example",
+    "user_name": "tgarcia156",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "Queue Lead",
+    "region": "Great Lakes",
+    "active": true,
+    "skills": [
+      "applications",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "74558a98-340f-4c25-bb39-c253dfaafd9c",
+    "employee_number": "E10157",
+    "name": "Mei Chen",
+    "email": "mei.chen157@harborwireless.example",
+    "user_name": "mchen157",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "Senior Engineer",
+    "region": "Southwest",
+    "active": true,
+    "skills": [
+      "applications",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "f62beff0-343a-45ba-8516-61268ca30b47",
+    "employee_number": "E10158",
+    "name": "Jasmine Huang",
+    "email": "jasmine.huang158@harborwireless.example",
+    "user_name": "jhuang158",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "Queue Lead",
+    "region": "Mountain",
+    "active": true,
+    "skills": [
+      "applications",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "8ef6d117-16ad-4c25-bc4c-eaab13c2998c",
+    "employee_number": "E10159",
+    "name": "Sofia Baker",
+    "email": "sofia.baker159@harborwireless.example",
+    "user_name": "sbaker159",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "Queue Lead",
+    "region": "Southeast",
+    "active": true,
+    "skills": [
+      "applications",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "45bde267-9f81-4f8f-b5b7-5627343afa3f",
+    "employee_number": "E10160",
+    "name": "Nina Baker",
+    "email": "nina.baker160@harborwireless.example",
+    "user_name": "nbaker160",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "Senior Engineer",
+    "region": "Mountain",
+    "active": true,
+    "skills": [
+      "applications",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "e863d767-c36f-4735-8a0a-47e8e3d6d5e9",
+    "employee_number": "E10161",
+    "name": "Maya Martin",
+    "email": "maya.martin161@harborwireless.example",
+    "user_name": "mmartin161",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "Queue Lead",
+    "region": "Central",
+    "active": true,
+    "skills": [
+      "applications",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "9ceee7d2-f6e3-41d0-8454-fcb2816acd85",
+    "employee_number": "E10162",
+    "name": "Zoe Nguyen",
+    "email": "zoe.nguyen162@harborwireless.example",
+    "user_name": "znguyen162",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "Senior Engineer",
+    "region": "Central",
+    "active": true,
+    "skills": [
+      "applications",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "57707678-6855-4142-a5ef-a65012a52dbb",
+    "employee_number": "E10163",
+    "name": "Emma Reed",
+    "email": "emma.reed163@harborwireless.example",
+    "user_name": "ereed163",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "L2 Specialist",
+    "region": "Southeast",
+    "active": true,
+    "skills": [
+      "applications",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "fe8063cb-a779-4ba1-98e8-48b188d9eece",
+    "employee_number": "E10164",
+    "name": "Nina Harris",
+    "email": "nina.harris164@harborwireless.example",
+    "user_name": "nharris164",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "Senior Engineer",
+    "region": "Great Lakes",
+    "active": true,
+    "skills": [
+      "applications",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "b9107e68-bc73-466c-8941-8a62c65d144b",
+    "employee_number": "E10165",
+    "name": "Diego Martin",
+    "email": "diego.martin165@harborwireless.example",
+    "user_name": "dmartin165",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "L2 Specialist",
+    "region": "Midwest",
+    "active": true,
+    "skills": [
+      "applications",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "476e691e-f449-4655-a766-a837c7514fa8",
+    "employee_number": "E10166",
+    "name": "Ava Jackson",
+    "email": "ava.jackson166@harborwireless.example",
+    "user_name": "ajackson166",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "L2 Specialist",
+    "region": "Pacific",
+    "active": true,
+    "skills": [
+      "applications",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "9f8696c7-d892-4d40-a8d6-69811d812721",
+    "employee_number": "E10167",
+    "name": "Sara Jackson",
+    "email": "sara.jackson167@harborwireless.example",
+    "user_name": "sjackson167",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "L2 Specialist",
+    "region": "Southwest",
+    "active": true,
+    "skills": [
+      "applications",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "7b13af9e-634c-48b6-9983-472e66c34597",
+    "employee_number": "E10168",
+    "name": "Quinn Lopez",
+    "email": "quinn.lopez168@harborwireless.example",
+    "user_name": "qlopez168",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "L2 Specialist",
+    "region": "Pacific",
+    "active": true,
+    "skills": [
+      "applications",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "74489d47-f895-4f06-afb7-c92f49d9b565",
+    "employee_number": "E10169",
+    "name": "Hassan Gupta",
+    "email": "hassan.gupta169@harborwireless.example",
+    "user_name": "hgupta169",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "L2 Specialist",
+    "region": "Great Lakes",
+    "active": true,
+    "skills": [
+      "applications",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "856089b0-80b6-4f78-bd59-57ecfb241efb",
+    "employee_number": "E10170",
+    "name": "Elena Baker",
+    "email": "elena.baker170@harborwireless.example",
+    "user_name": "ebaker170",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "L1 Agent",
+    "region": "Northeast",
+    "active": true,
+    "skills": [
+      "applications",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "2df08195-622a-4100-a0df-0b186b872662",
+    "employee_number": "E10171",
+    "name": "Dana Chen",
+    "email": "dana.chen171@harborwireless.example",
+    "user_name": "dchen171",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "Senior Engineer",
+    "region": "Great Lakes",
+    "active": true,
+    "skills": [
+      "applications",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "a8c46bb7-c77d-452e-b61d-b496e38c8a9c",
+    "employee_number": "E10172",
+    "name": "Riley Ibrahim",
+    "email": "riley.ibrahim172@harborwireless.example",
+    "user_name": "ribrahim172",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "Senior Engineer",
+    "region": "Great Lakes",
+    "active": true,
+    "skills": [
+      "applications",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "14c6fb5d-a798-42b8-99a3-db1a81eb1905",
+    "employee_number": "E10173",
+    "name": "Noah Nguyen",
+    "email": "noah.nguyen173@harborwireless.example",
+    "user_name": "nnguyen173",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "L1 Agent",
+    "region": "Mountain",
+    "active": true,
+    "skills": [
+      "applications",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "6377cc70-ed75-442b-88c5-b22250e10a25",
+    "employee_number": "E10174",
+    "name": "Ben Young",
+    "email": "ben.young174@harborwireless.example",
+    "user_name": "byoung174",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "L1 Agent",
+    "region": "Midwest",
+    "active": true,
+    "skills": [
+      "applications",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "86221c68-546a-4320-9021-44b9da28e3e6",
+    "employee_number": "E10175",
+    "name": "Ava Santos",
+    "email": "ava.santos175@harborwireless.example",
+    "user_name": "asantos175",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "Queue Lead",
+    "region": "Northeast",
+    "active": true,
+    "skills": [
+      "applications",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "07e9d69c-01e0-4498-ad32-7f9278c47b4b",
+    "employee_number": "E10176",
+    "name": "Yara Torres",
+    "email": "yara.torres176@harborwireless.example",
+    "user_name": "ytorres176",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "L2 Specialist",
+    "region": "Northeast",
+    "active": true,
+    "skills": [
+      "applications",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "69581ca4-344b-468e-b171-42108a3d7624",
+    "employee_number": "E10177",
+    "name": "Elena Ortiz",
+    "email": "elena.ortiz177@harborwireless.example",
+    "user_name": "eortiz177",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "Senior Engineer",
+    "region": "Southeast",
+    "active": true,
+    "skills": [
+      "applications",
+      "vip"
+    ]
+  },
+  {
+    "sys_id": "3013d234-b944-44c8-b7e5-128a4edf399f",
+    "employee_number": "E10178",
+    "name": "Ian Chen",
+    "email": "ian.chen178@harborwireless.example",
+    "user_name": "ichen178",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "Senior Engineer",
+    "region": "Central",
+    "active": true,
+    "skills": [
+      "applications",
+      "escalation"
+    ]
+  },
+  {
+    "sys_id": "6426f7b5-f6f8-44fd-bf13-1fb8d43c2cd5",
+    "employee_number": "E10179",
+    "name": "Wei Quinn",
+    "email": "wei.quinn179@harborwireless.example",
+    "user_name": "wquinn179",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "Senior Engineer",
+    "region": "Central",
+    "active": true,
+    "skills": [
+      "applications",
+      "triage"
+    ]
+  },
+  {
+    "sys_id": "be6c0ef9-95e0-413d-a8ed-5112e1464a4c",
+    "employee_number": "E10180",
+    "name": "Omar Jackson",
+    "email": "omar.jackson180@harborwireless.example",
+    "user_name": "ojackson180",
+    "assignment_group": "HW-Enterprise-Apps",
+    "category": "applications",
+    "role": "L2 Specialist",
+    "region": "Midwest",
+    "active": true,
+    "skills": [
+      "applications",
+      "escalation"
+    ]
+  }
+]
