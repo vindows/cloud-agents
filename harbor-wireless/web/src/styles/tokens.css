@@ -1,0 +1,44 @@
+/* Signal Deck — locked tokens (critique-and-recommendation.md) */
+:root {
+  --hw-navy: #0b1f33;
+  --hw-signal: #0e9f9b;
+  --hw-signal-soft: color-mix(in srgb, var(--hw-signal) 16%, white);
+
+  --hw-fog: #e8eef2;
+  --hw-panel: #f7fafc;
+  --hw-ink: #0b1f33;
+  --hw-slate: #5a6b7a;
+  --hw-line: #c5d0d8;
+
+  --hw-flare: #c45c26;
+  --hw-route: #1f6b4a;
+  --hw-warn: #a67c00;
+  --hw-dup: #3a5f7a;
+
+  --hw-font-brand: "Fraunces", "Source Serif 4", Georgia, serif;
+  --hw-font-ui: "Manrope", "Segoe UI", system-ui, sans-serif;
+  --hw-font-mono: "IBM Plex Mono", "SF Mono", ui-monospace, monospace;
+
+  --hw-radius: 6px;
+  --hw-space-1: 4px;
+  --hw-space-2: 8px;
+  --hw-space-3: 16px;
+  --hw-space-4: 24px;
+  --hw-space-5: 40px;
+  --hw-space-6: 64px;
+
+  --hw-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --hw-dur-fast: 180ms;
+  --hw-dur: 280ms;
+  --hw-dur-pulse: 1200ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
