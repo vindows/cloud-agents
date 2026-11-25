@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 
-from app.models.tickets import Ticket
+from app.models.tickets import Ticket, caller_is_active
 from app.models.triage import ArchiveDecision, ArchiveLeverConfig
 
 
@@ -26,6 +26,11 @@ def evaluate_archive(
     auto   — archive when age >= age_years
     human  — never auto-apply; always surface as candidate for approval
     hybrid — auto only when age >= age_years AND requester inactive
+
+    Inactive requester:
+      1. requester_last_active_at older than inactive_days, if set
+      2. else caller_id.active is False (dataset field)
+      3. else unknown → treat as inactive when age threshold already met
     """
     now = _aware(now or _utcnow())
     opened = _aware(ticket.opened_at)
@@ -33,17 +38,26 @@ def evaluate_archive(
     age_ok = age_years >= levers.age_years
 
     last_active = ticket.requester_last_active_at
-    if last_active is None:
-        # Unknown activity: treat as inactive for hybrid when ticket itself is stale
-        inactive = age_ok
-        inactive_note = "requester activity unknown; treating as inactive because ticket is stale"
-    else:
+    active_flag = caller_is_active(ticket)
+
+    if last_active is not None:
         last_active = _aware(last_active)
         inactive_days = (now - last_active).total_seconds() / 86400.0
         inactive = inactive_days >= levers.inactive_days
         inactive_note = (
             f"requester last active {inactive_days:.0f}d ago "
             f"(threshold {levers.inactive_days}d)"
+        )
+    elif active_flag is False:
+        inactive = True
+        inactive_note = "caller_id.active=false (requester inactive in roster)"
+    elif active_flag is True:
+        inactive = False
+        inactive_note = "caller_id.active=true"
+    else:
+        inactive = age_ok
+        inactive_note = (
+            "requester activity unknown; treating as inactive because ticket is stale"
         )
 
     candidate = age_ok

@@ -9,7 +9,7 @@ from .jev import (
     SystemOneResponse,
     Usage,
 )
-from .tickets import Ticket, TicketIn
+from .tickets import Agent, GoldenLabel, PersonRef, Ticket, TicketIn
 from .triage import (
     ArchiveDecision,
     ArchiveLeverConfig,
@@ -19,12 +19,15 @@ from .triage import (
 )
 
 __all__ = [
+    "Agent",
     "ArchiveDecision",
     "ArchiveLeverConfig",
     "ChoiceAnswer",
     "ChoiceQuestion",
+    "GoldenLabel",
     "NoulAnswer",
     "NoulQuestion",
+    "PersonRef",
     "PipelineResult",
     "ScoreAnswer",
     "ScoreQuestion",

@@ -12,6 +12,7 @@ FastAPI service that runs Phase-1 auto-triage on ServiceNow-shaped tickets with 
    Every step returns `reason` + `confidence` (+ optional `needs_human`)
 4. **Archive levers** — `auto` | `human` | `hybrid` (age + inactive requester)
 5. **`GET /metrics`** — ops dashboard counters from handled tickets
+6. **ServiceNow coerce layer** (`app/normalize.py`) — accepts raw `data/tickets.json` rows (`priority` like `"3 - Moderate"`, `state` like `"New"`, object `caller_id`) without client-side reshape
 
 ## Quick start
 
@@ -99,7 +100,19 @@ curl -s http://127.0.0.1:8080/metrics | jq
 
 ## Data
 
-On startup the app optionally loads `harbor-wireless/data/tickets.json` (produced by the data workstream). If missing, triage still works — pass `existing_open` in the request body or run against an empty open set.
+On startup the app loads from `harbor-wireless/data/` (merged data PR):
+
+| File | Use |
+|------|-----|
+| `tickets.json` | Open corpus for dedupe + backlog (~6000). `parent` = original ticket **number**. |
+| `agents.json` | Routing roster (~180) by category / assignment group |
+| `golden-set.json` | Eval labels: `label_category`, `label_is_duplicate`, `label_urgency`, `label_parent` |
+
+```bash
+curl -s 'http://127.0.0.1:8080/eval/golden?limit=200' | jq .accuracy
+```
+
+If data files are missing, triage still works — pass `existing_open` in the request body or run against an empty open set.
 
 ## Layout
 

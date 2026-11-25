@@ -13,11 +13,17 @@ from app.triage.engine import TriageEngine
 router = APIRouter(tags=["triage"])
 
 
+def _engine(request: Request) -> TriageEngine:
+    return TriageEngine(
+        classifier=request.app.state.classifier,
+        agents_by_category=dict(store.agents_by_category),
+    )
+
+
 @router.post("/triage/run", response_model=PipelineResult)
 async def triage_run(body: TriageRequest, request: Request) -> PipelineResult:
     """Run full classify → dedupe → priority → route|archive pipeline."""
-    classifier = request.app.state.classifier
-    engine = TriageEngine(classifier)
+    engine = _engine(request)
     levers = body.archive or store.get_archive_levers()
     req = TriageRequest(
         ticket=body.ticket,

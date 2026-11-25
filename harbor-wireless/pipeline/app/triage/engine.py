@@ -8,7 +8,15 @@ from difflib import SequenceMatcher
 from app.classifier.base import ClassifierBackend
 from app.config import Settings, get_settings
 from app.models.jev import ChoiceQuestion, NoulQuestion, ScoreQuestion
-from app.models.tickets import Ticket, TicketIn
+from app.models.tickets import (
+    Agent,
+    PersonRef,
+    Ticket,
+    TicketIn,
+    caller_key,
+    is_open_state,
+    priority_label,
+)
 from app.models.triage import (
     ArchiveLeverConfig,
     PipelineResult,
@@ -17,19 +25,34 @@ from app.models.triage import (
 )
 from app.triage.archive_policy import evaluate_archive
 
+# Match harbor-wireless/data assignment groups
 CATEGORY_GROUPS = {
-    "access": "IT Access & Identity",
-    "hardware": "Endpoint Hardware",
-    "network": "Network Operations",
-    "applications": "Enterprise Applications",
+    "access": "HW-Access-Identity",
+    "hardware": "HW-Endpoint-Hardware",
+    "network": "HW-Network-Ops",
+    "applications": "HW-Enterprise-Apps",
 }
 
-# Demo agent roster snippets — full roster lives in data/agents.json when present
+# Fallback when agents.json not loaded
 DEMO_AGENTS = {
-    "access": ["a.chen", "m.patel", "j.okonkwo"],
-    "hardware": ["r.nguyen", "s.alvarez", "k.brown"],
-    "network": ["t.singh", "l.martin", "p.garcia"],
-    "applications": ["e.wilson", "c.lee", "d.moore"],
+    "access": ["dperez001", "mchen002", "jokonkwo003"],
+    "hardware": ["rnguyen004", "salvarez005", "kbrown006"],
+    "network": ["tsingh007", "lmartin008", "pgarcia009"],
+    "applications": ["ewilson010", "clee011", "dmoore012"],
+}
+
+URGENCY_FROM_SCORE = (
+    (1.6, "critical"),
+    (1.1, "high"),
+    (0.55, "medium"),
+    (0.0, "low"),
+)
+
+PRIORITY_FROM_URGENCY = {
+    "critical": "1",
+    "high": "2",
+    "medium": "3",
+    "low": "4",
 }
 
 
@@ -47,6 +70,10 @@ def _ensure_ticket(ticket_in: TicketIn) -> Ticket:
     data["number"] = data.get("number") or f"INC{uuid.uuid4().hex[:7].upper()}"
     data["sys_id"] = data.get("sys_id") or str(uuid.uuid4())
     data["opened_at"] = data.get("opened_at") or now
+    if isinstance(data.get("caller_id"), dict):
+        data["caller_id"] = PersonRef.model_validate(data["caller_id"])
+    if isinstance(data.get("assigned_to"), dict):
+        data["assigned_to"] = PersonRef.model_validate(data["assigned_to"])
     return Ticket.model_validate(data)
 
 
@@ -54,14 +81,23 @@ def _similarity(a: str, b: str) -> float:
     return SequenceMatcher(None, a.lower(), b.lower()).ratio()
 
 
+def _urgency_from_score(score: float) -> str:
+    for threshold, label in URGENCY_FROM_SCORE:
+        if score >= threshold:
+            return label
+    return "low"
+
+
 class TriageEngine:
     def __init__(
         self,
         classifier: ClassifierBackend,
         settings: Settings | None = None,
+        agents_by_category: dict[str, list[Agent]] | None = None,
     ) -> None:
         self.classifier = classifier
         self.settings = settings or get_settings()
+        self.agents_by_category = agents_by_category or {}
 
     async def run(self, request: TriageRequest) -> PipelineResult:
         ticket = _ensure_ticket(request.ticket)
@@ -70,28 +106,29 @@ class TriageEngine:
             age_years=self.settings.archive_age_years,
             inactive_days=self.settings.archive_inactive_days,
         )
-        open_tickets = request.existing_open or []
+        open_tickets = [
+            t
+            for t in (request.existing_open or [])
+            if is_open_state(t.state)
+        ]
         steps: list[StepResult] = []
 
-        # 1) Intake
-        steps.append(
-            await self._step_intake(ticket)
-        )
+        steps.append(await self._step_intake(ticket))
 
-        # 2) Classify
         classify_step, category, cat_conf = await self._step_classify(ticket)
         steps.append(classify_step)
         ticket.category = category  # type: ignore[assignment]
 
-        # 3) Dedupe
-        dedupe_step, is_dup, dup_of, dup_conf = await self._step_dedupe(
+        dedupe_step, is_dup, dup_of, _dup_conf = await self._step_dedupe(
             ticket, open_tickets
         )
         steps.append(dedupe_step)
         if is_dup:
             ticket.triage_status = "duplicate"
-            ticket.duplicate_of = dup_of
+            ticket.is_duplicate = True
+            # parent = original ticket number (data contract)
             ticket.parent = dup_of
+            ticket.duplicate_of = dup_of
             return PipelineResult(
                 ticket=ticket,
                 steps=steps,
@@ -100,12 +137,11 @@ class TriageEngine:
                 classifier_backend=self.classifier.name,
             )
 
-        # 4) Priority
-        priority_step, priority, urg_conf = await self._step_priority(ticket)
+        priority_step, priority, urgency, urg_conf = await self._step_priority(ticket)
         steps.append(priority_step)
-        ticket.priority = priority  # type: ignore[assignment]
+        ticket.priority = priority
+        ticket.urgency = urgency
 
-        # 5) Archive candidate check (before route — stale backlog may skip routing)
         archive = evaluate_archive(ticket, levers)
         archive_step = StepResult(
             step="archive",
@@ -124,7 +160,7 @@ class TriageEngine:
 
         if archive.auto_applied:
             ticket.triage_status = "archived"
-            ticket.state = "archived"
+            ticket.state = "Closed"
             return PipelineResult(
                 ticket=ticket,
                 steps=steps,
@@ -143,13 +179,17 @@ class TriageEngine:
                 classifier_backend=self.classifier.name,
             )
 
-        # 6) Route
         route_step = await self._step_route(ticket, category, cat_conf, urg_conf)
         steps.append(route_step)
         ticket.assignment_group = route_step.detail.get("assignment_group")
-        ticket.assigned_to = route_step.detail.get("assigned_to")
+        assigned = route_step.detail.get("assigned_to")
+        if isinstance(assigned, dict):
+            ticket.assigned_to = PersonRef.model_validate(assigned)
+            ticket.route_agent = assigned.get("user_name")
+        else:
+            ticket.assigned_to = assigned
+            ticket.route_agent = assigned if isinstance(assigned, str) else None
         ticket.route_group = ticket.assignment_group
-        ticket.route_agent = ticket.assigned_to
 
         low_conf = min(cat_conf, urg_conf) < self.settings.confidence_threshold
         if low_conf or route_step.needs_human:
@@ -157,7 +197,7 @@ class TriageEngine:
             outcome = "needs_human"
         else:
             ticket.triage_status = "routed"
-            ticket.state = "open"
+            ticket.state = "In Progress"
             outcome = "routed"
 
         return PipelineResult(
@@ -181,6 +221,7 @@ class TriageEngine:
                 "number": ticket.number,
                 "sys_id": ticket.sys_id,
                 "opened_at": ticket.opened_at.isoformat(),
+                "parent": ticket.parent,
             },
             finished_at=_utcnow(),
         )
@@ -239,47 +280,49 @@ class TriageEngine:
     ) -> tuple[StepResult, bool, str | None, float]:
         started = _utcnow()
         text = _ticket_text(ticket)
+        ticket_caller = caller_key(ticket.caller_id)
 
         best: tuple[float, Ticket] | None = None
         for other in open_tickets:
             if other.sys_id == ticket.sys_id or other.number == ticket.number:
                 continue
-            if other.state in ("closed", "resolved", "archived"):
+            if not is_open_state(other.state):
+                continue
+            # Prefer matching against non-duplicate originals
+            if other.is_duplicate and other.parent:
                 continue
             score = _similarity(text, _ticket_text(other))
-            # Boost if same caller and similar short description
-            if (
-                ticket.caller_id
-                and other.caller_id
-                and ticket.caller_id == other.caller_id
-            ):
+            other_caller = caller_key(other.caller_id)
+            if ticket_caller and other_caller and ticket_caller == other_caller:
                 score = min(1.0, score + 0.08)
             if best is None or score > best[0]:
                 best = (score, other)
 
-        # Also ask System One noul for duplicate signal on the text itself
         noul_resp = await self.classifier.answer_questions(
             state=text,
             questions={
                 "is_duplicate_language": NoulQuestion(
                     type="noul",
-                    instructions="Does this ticket describe a duplicate of an already-reported issue?",
+                    instructions=(
+                        "Does this ticket describe a duplicate of an "
+                        "already-reported issue?"
+                    ),
                 )
             },
         )
         lang_p = float(noul_resp.answers["is_duplicate_language"]["noul"])
 
         sim = best[0] if best else 0.0
-        # Combined: high text similarity OR strong duplicate language + moderate sim
         is_dup = sim >= 0.72 or (sim >= 0.55 and lang_p >= 0.7)
         conf = max(sim, lang_p * sim) if best else 1.0 - lang_p
+        # parent / duplicate_of = original ticket *number*
         dup_of = best[1].number if is_dup and best else None
 
         if is_dup and best:
             reason = (
                 f"Likely duplicate of {best[1].number} "
                 f"(text similarity={sim:.2f}, duplicate-language noul={lang_p:.2f}). "
-                f"Linking as child; skip re-route."
+                f"Setting parent={best[1].number}; skip re-route."
             )
             action = "duplicate"
         elif best:
@@ -305,7 +348,7 @@ class TriageEngine:
                 "similarity": sim,
                 "duplicate_language_noul": lang_p,
                 "nearest": best[1].number if best else None,
-                "duplicate_of": dup_of,
+                "parent": dup_of,
             },
             started_at=started,
             finished_at=finished,
@@ -315,7 +358,7 @@ class TriageEngine:
 
     async def _step_priority(
         self, ticket: Ticket
-    ) -> tuple[StepResult, str, float]:
+    ) -> tuple[StepResult, str, str, float]:
         started = _utcnow()
         text = _ticket_text(ticket)
         resp = await self.classifier.answer_questions(
@@ -335,32 +378,25 @@ class TriageEngine:
         ans = resp.answers["urgency"]
         score = float(ans["score"])
         conf = float(ans["confidence"])
-        # Map expected score 0..2 → ServiceNow priority 5..1 (lower number = higher urgency)
-        if score >= 1.6:
-            priority = "1"
-        elif score >= 1.1:
-            priority = "2"
-        elif score >= 0.7:
-            priority = "3"
-        elif score >= 0.35:
-            priority = "4"
-        else:
-            priority = "5"
+        urgency = _urgency_from_score(score)
+        code = PRIORITY_FROM_URGENCY[urgency]
+        priority = priority_label(code)
 
         legend = ans.get("legend", {})
         reason = (
-            f"Urgency score={score:.2f} (legend={legend}) → priority P{priority}. "
-            f"Confidence={conf:.2f}."
+            f"Urgency score={score:.2f} → urgency={urgency}, priority={priority} "
+            f"(legend={legend}). Confidence={conf:.2f}."
         )
         finished = _utcnow()
         step = StepResult(
             step="priority",
-            action=f"P{priority}",
+            action=priority,
             reason=reason,
             confidence=conf,
             needs_human=conf < self.settings.confidence_threshold,
             detail={
                 "urgency_score": score,
+                "urgency": urgency,
                 "probabilities": ans.get("probabilities"),
                 "priority": priority,
             },
@@ -368,7 +404,7 @@ class TriageEngine:
             finished_at=finished,
             duration_ms=(finished - started).total_seconds() * 1000,
         )
-        return step, priority, conf
+        return step, priority, urgency, conf
 
     async def _step_route(
         self,
@@ -378,16 +414,27 @@ class TriageEngine:
         urg_conf: float,
     ) -> StepResult:
         started = _utcnow()
-        group = CATEGORY_GROUPS.get(category, "IT Service Desk")
-        agents = DEMO_AGENTS.get(category, ["queue.unassigned"])
-        # Stable pick from ticket number hash for demo reproducibility
+        group = CATEGORY_GROUPS.get(category, "HW-Access-Identity")
+        roster = [a for a in self.agents_by_category.get(category, []) if a.active]
         digits = int(re.sub(r"\D", "", ticket.number) or "0")
-        agent = agents[digits % len(agents)]
+        if roster:
+            agent = roster[digits % len(roster)]
+            assigned_payload = {
+                "sys_id": agent.sys_id,
+                "name": agent.name,
+                "user_name": agent.user_name,
+            }
+            agent_label = agent.user_name
+        else:
+            fallback = DEMO_AGENTS.get(category, ["queue.unassigned"])
+            agent_label = fallback[digits % len(fallback)]
+            assigned_payload = agent_label
+
         conf = min(cat_conf, urg_conf)
         reason = (
-            f"Routed to assignment group '{group}' → agent '{agent}' "
+            f"Routed to assignment group '{group}' → agent '{agent_label}' "
             f"because category={category} (classify conf={cat_conf:.2f}) "
-            f"and priority=P{ticket.priority}."
+            f"and priority={ticket.priority}."
         )
         finished = _utcnow()
         return StepResult(
@@ -398,9 +445,10 @@ class TriageEngine:
             needs_human=conf < self.settings.confidence_threshold,
             detail={
                 "assignment_group": group,
-                "assigned_to": agent,
+                "assigned_to": assigned_payload,
                 "category": category,
                 "priority": ticket.priority,
+                "roster_size": len(roster),
             },
             started_at=started,
             finished_at=finished,

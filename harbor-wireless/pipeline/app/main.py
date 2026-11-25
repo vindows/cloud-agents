@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from contextlib import asynccontextmanager
-from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -9,20 +8,18 @@ from fastapi.middleware.cors import CORSMiddleware
 from app import __version__
 from app.classifier.factory import get_classifier
 from app.config import get_settings
-from app.routes import metrics, systemone, triage
-from app.store import store
+from app.routes import eval_golden, metrics, systemone, triage
+from app.store import resolve_data_dir, store
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     settings = get_settings()
     app.state.classifier = get_classifier(settings.classifier_backend)
-    data_dir = Path(settings.data_dir)
-    if not data_dir.is_absolute():
-        # Relative to harbor-wireless/pipeline/
-        data_dir = Path(__file__).resolve().parents[2] / "data"
-    loaded = store.load_tickets_file(data_dir / "tickets.json")
-    app.state.tickets_loaded = loaded
+    data_dir = resolve_data_dir(settings.data_dir)
+    counts = store.load_data_dir(data_dir)
+    app.state.data_dir = str(data_dir)
+    app.state.data_counts = counts
     yield
 
 
@@ -48,6 +45,7 @@ app.add_middleware(
 app.include_router(systemone.router)
 app.include_router(triage.router)
 app.include_router(metrics.router)
+app.include_router(eval_golden.router)
 
 
 @app.get("/health")
@@ -57,5 +55,8 @@ async def health():
         "ok": True,
         "version": __version__,
         "classifier_backend": settings.classifier_backend,
-        "tickets_loaded": getattr(app.state, "tickets_loaded", 0),
+        "data_dir": getattr(app.state, "data_dir", None),
+        "tickets_loaded": store.tickets_loaded,
+        "agents_loaded": store.agents_loaded,
+        "golden_loaded": store.golden_loaded,
     }

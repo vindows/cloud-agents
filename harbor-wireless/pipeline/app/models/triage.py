@@ -3,10 +3,11 @@ from __future__ import annotations
 from datetime import datetime
 from typing import Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from app.config import ArchiveMode
 from app.models.tickets import Ticket, TicketIn
+from app.normalize import coerce_ticket_dict
 
 
 class StepResult(BaseModel):
@@ -37,10 +38,29 @@ class ArchiveLeverConfig(BaseModel):
 
 
 class TriageRequest(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+
     ticket: TicketIn
     archive: ArchiveLeverConfig | None = None
     existing_open: list[Ticket] | None = None
     dry_run: bool = False
+
+    @model_validator(mode="before")
+    @classmethod
+    def _coerce_nested_tickets(cls, data: Any) -> Any:
+        """Coerce raw tickets.json shapes on ticket + existing_open."""
+        if not isinstance(data, dict):
+            return data
+        out = dict(data)
+        if isinstance(out.get("ticket"), dict):
+            out["ticket"] = coerce_ticket_dict(out["ticket"])
+        open_list = out.get("existing_open")
+        if isinstance(open_list, list):
+            out["existing_open"] = [
+                coerce_ticket_dict(item) if isinstance(item, dict) else item
+                for item in open_list
+            ]
+        return out
 
 
 class PipelineResult(BaseModel):

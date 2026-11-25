@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import json
 from datetime import datetime, timedelta, timezone
+from pathlib import Path
 
 import pytest
 from fastapi.testclient import TestClient
@@ -8,7 +10,10 @@ from fastapi.testclient import TestClient
 from app.classifier.factory import reset_classifier_cache
 from app.config import get_settings
 from app.main import app
+from app.normalize import coerce_ticket_dict, normalize_priority, normalize_state
 from app.store import store
+
+DATA_TICKETS = Path(__file__).resolve().parents[2] / "data" / "tickets.json"
 
 
 @pytest.fixture(autouse=True)
@@ -215,3 +220,111 @@ def test_metrics(client: TestClient):
     assert m["handled"] >= 1
     assert "outcomes" in m
     assert m["classifier_backend"] == "bert"
+
+
+def test_normalize_servicenow_shapes():
+    raw = {
+        "short_description": "x",
+        "priority": "3 - Moderate",
+        "state": "New",
+        "caller_id": {
+            "sys_id": "abc",
+            "name": "Pat",
+            "user_name": "pat1",
+            "active": False,
+        },
+        "assigned_to": {
+            "sys_id": "def",
+            "name": "Agent",
+            "user_name": "agent1",
+        },
+        "parent": "INC1000527",
+    }
+    coerced = coerce_ticket_dict(raw)
+    assert coerced["priority"] == "3 - Moderate"
+    assert normalize_priority("3") == "3 - Moderate"
+    assert normalize_state("in_progress") == "In Progress"
+    assert coerced["state"] == "New"
+    assert isinstance(coerced["caller_id"], dict)
+    assert coerced["caller_id"]["user_name"] == "pat1"
+    assert coerced["parent"] == "INC1000527"
+
+
+def test_loads_real_dataset(client: TestClient):
+    r = client.get("/health")
+    body = r.json()
+    assert body["tickets_loaded"] == 6000
+    assert body["agents_loaded"] == 180
+    assert body["golden_loaded"] == 200
+
+
+def test_raw_tickets_json_triage_run(client: TestClient):
+    """QA blocker: raw merged tickets.json must POST /triage/run without 422."""
+    assert DATA_TICKETS.exists(), f"missing {DATA_TICKETS}"
+    # Prefer an open-ish recent unique ticket to exercise route path
+    tickets = json.loads(DATA_TICKETS.read_text())
+    sample = next(
+        t
+        for t in tickets
+        if t.get("state") == "New"
+        and not t.get("is_duplicate")
+        and t.get("recency_tier") == "recent"
+    )
+    # Ensure ServiceNow shapes still present (the 422 trigger)
+    assert " - " in sample["priority"]
+    assert sample["state"][0].isupper()
+    assert isinstance(sample["caller_id"], dict)
+
+    r = client.post("/triage/run", json={"ticket": sample, "dry_run": True})
+    assert r.status_code == 200, r.text
+    body = r.json()
+    assert body["outcome"] in (
+        "routed",
+        "needs_human",
+        "duplicate",
+        "archived",
+        "archive_candidate",
+    )
+    assert body["ticket"]["caller_id"]["user_name"] == sample["caller_id"]["user_name"]
+    assert body["steps"]
+    for step in body["steps"]:
+        assert step["reason"]
+        assert 0 <= step["confidence"] <= 1
+
+
+def test_triage_parent_is_ticket_number(client: TestClient):
+    client.post(
+        "/triage/run",
+        json={
+            "ticket": {
+                "number": "INC9001",
+                "short_description": "Cannot reset AD password after lockout",
+                "description": "access identity MFA password reset SSO",
+                "caller_id": {"user_name": "same.user", "active": True},
+            }
+        },
+    )
+    dup = client.post(
+        "/triage/run",
+        json={
+            "ticket": {
+                "number": "INC9002",
+                "short_description": "Cannot reset AD password after lockout",
+                "description": "access identity MFA password reset SSO",
+                "caller_id": {"user_name": "same.user", "active": True},
+            }
+        },
+    ).json()
+    assert dup["outcome"] == "duplicate"
+    assert dup["ticket"]["parent"] == "INC9001"
+    assert dup["ticket"]["duplicate_of"] == "INC9001"
+
+
+def test_golden_eval_endpoint(client: TestClient):
+    r = client.get("/eval/golden?limit=20")
+    assert r.status_code == 200
+    body = r.json()
+    assert body["n"] == 20
+    assert "accuracy" in body
+    assert "category" in body["accuracy"]
+    assert body["accuracy"]["category"] >= 0.3  # demo classifier floor
