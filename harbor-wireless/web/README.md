@@ -14,7 +14,7 @@ npm run dev
 
 Open http://127.0.0.1:5173
 
-The Vite server exposes `../data` at `/demo-data` (6k tickets + 180 agents from the data worker). If that folder is missing, the UI falls back to a seeded demo subset.
+The Vite server exposes `../data` at `/demo-data` (6k tickets + 180 agents from the data worker). Production builds copy that JSON into `public/demo-data/` (see `npm run copy-demo-data` / `prebuild`) so `vite preview` and Cursor publish-app serve the full set. If those files are missing, the UI falls back to a seeded demo subset.
 
 Pipeline (optional, adapters fall back to local simulation):
 
@@ -30,12 +30,14 @@ Optional env:
 | Variable | Default | Purpose |
 |---|---|---|
 | `VITE_DATA_BASE` | `/demo-data` | Tickets/agents JSON base URL |
-| `VITE_PIPELINE_URL` | `http://127.0.0.1:8080` | FastAPI triage/metrics/archive levers (`harbor-wireless/pipeline`) |
+| `VITE_PIPELINE_URL` | `http://127.0.0.1:8080` (dev) | FastAPI triage/metrics/archive levers; ignored in prod when still localhost |
 
 ```bash
-npm run build   # typecheck + production build
+npm run build   # copy demo-data + typecheck + production build
 npm run preview # serve dist
 ```
+
+Phone / Cursor hosting: see [PUBLISH.md](./PUBLISH.md).
 
 ## Surfaces
 
