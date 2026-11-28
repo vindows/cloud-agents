@@ -21,6 +21,8 @@ import {
 import type {
   Agent,
   ArchivePolicy,
+  HitlDecision,
+  HitlOverrideReason,
   OpsMetrics,
   QueueItem,
   Ticket,
@@ -42,7 +44,14 @@ interface DemoState {
   setPolicy: (p: ArchivePolicy) => void;
   refreshMetrics: () => Promise<void>;
   startTriage: (ticket: Ticket) => Promise<void>;
+  applyHitlDecision: (
+    sysId: string,
+    decision: HitlDecision,
+    overrideReason: HitlOverrideReason | null,
+    note: string,
+  ) => void;
   getTicket: (sysId: string) => Ticket | undefined;
+  findRelated: (ticket: Ticket) => { parent: Ticket | null; duplicates: Ticket[] };
 }
 
 const Ctx = createContext<DemoState | null>(null);
@@ -172,6 +181,89 @@ export function DemoProvider({ children }: { children: ReactNode }) {
 
   const getTicket = useCallback((sysId: string) => tickets.find((t) => t.sys_id === sysId), [tickets]);
 
+  const findRelated = useCallback(
+    (ticket: Ticket) => {
+      const parent =
+        tickets.find((t) => t.sys_id === ticket.parent || t.number === ticket.parent) ?? null;
+      const duplicates = tickets.filter(
+        (t) =>
+          t.sys_id !== ticket.sys_id &&
+          (t.parent === ticket.sys_id || t.parent === ticket.number || ticket.parent === t.number),
+      );
+      return { parent, duplicates };
+    },
+    [tickets],
+  );
+
+  const applyHitlDecision = useCallback(
+    (sysId: string, decision: HitlDecision, overrideReason: HitlOverrideReason | null, note: string) => {
+      const now = new Date().toISOString();
+      setTickets((prev) => {
+        const next = prev.map((t) => {
+          if (t.sys_id !== sysId) return t;
+          const activity = [
+            ...(t.activity ?? []),
+            {
+              at: now,
+              actor: "Ops specialist",
+              role: "Specialist",
+              kind: "triage" as const,
+              action:
+                decision === "approve_route"
+                  ? "Approved route"
+                  : decision === "hold_human"
+                    ? "Held for human"
+                    : "Rejected / archived",
+              body: note || (overrideReason ? `Override: ${overrideReason}` : "Confirmed System One recommendation"),
+              reason: overrideReason ?? decision,
+            },
+          ];
+          if (decision === "approve_route") {
+            const agent =
+              agents.filter((a) => a.category === t.category).sort((a, b) => a.active_load - b.active_load)[0] ??
+              null;
+            return {
+              ...t,
+              state: "open" as const,
+              triage_status: "routed" as const,
+              assigned_to: agent?.name ?? t.assigned_to,
+              assignment_group: agent?.assignment_group ?? t.assignment_group,
+              routed_at: now,
+              hitl_decision: decision,
+              hitl_override_reason: overrideReason,
+              hitl_note: note || null,
+              activity,
+            };
+          }
+          if (decision === "reject_archive") {
+            if (t.hard_block?.locks_auto_archive) return t;
+            return {
+              ...t,
+              state: "archived" as const,
+              triage_status: "archived" as const,
+              hitl_decision: decision,
+              hitl_override_reason: overrideReason,
+              hitl_note: note || null,
+              activity,
+            };
+          }
+          return {
+            ...t,
+            triage_status: "untriaged" as const,
+            hitl_decision: decision,
+            hitl_override_reason: overrideReason,
+            hitl_note: note || null,
+            activity,
+          };
+        });
+        void loadQueue(next, agents).then(setQueue);
+        void loadMetrics(next).then(setMetrics);
+        return next;
+      });
+    },
+    [agents],
+  );
+
   const value = useMemo(
     () => ({
       ready,
@@ -187,7 +279,9 @@ export function DemoProvider({ children }: { children: ReactNode }) {
       setPolicy,
       refreshMetrics,
       startTriage,
+      applyHitlDecision,
       getTicket,
+      findRelated,
     }),
     [
       ready,
@@ -203,7 +297,9 @@ export function DemoProvider({ children }: { children: ReactNode }) {
       setPolicy,
       refreshMetrics,
       startTriage,
+      applyHitlDecision,
       getTicket,
+      findRelated,
     ],
   );
 

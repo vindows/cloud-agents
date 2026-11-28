@@ -684,6 +684,23 @@ def main() -> None:
     write_json(data_dir / "dataset-meta.json", meta)
     print(json.dumps(meta, indent=2))
 
+    # Ops-density fields (activity, CI, hard_block) — separate RNG so base corpus stays stable.
+    enrich_path = Path(__file__).resolve().parent / "enrich_ticket_density.py"
+    if enrich_path.exists():
+        import importlib.util
+
+        spec = importlib.util.spec_from_file_location("enrich_ticket_density", enrich_path)
+        mod = importlib.util.module_from_spec(spec) if spec else None
+        if mod and spec and spec.loader:
+            spec.loader.exec_module(mod)
+            density = mod.enrich(tickets, agents)
+            write_json(data_dir / "tickets.json", tickets)
+            meta["ops_density"] = density
+            write_json(data_dir / "dataset-meta.json", meta)
+            print(json.dumps({"ops_density": density}, indent=2))
+    else:
+        print("enrich_ticket_density.py missing; skip density pass")
+
 
 if __name__ == "__main__":
     main()
