@@ -287,6 +287,10 @@ export function applyArchivePolicy(tickets: Ticket[], policy: ArchivePolicy): Ti
     if (t.state === "duplicate" || t.state === "archived" || t.state === "resolved" || t.state === "closed") {
       return t;
     }
+    // VIP / security / privileged-access: never auto-archive; keep for human review.
+    if (t.hard_block?.locks_auto_archive) {
+      return { ...t, triage_status: t.triage_status === "archived" ? "untriaged" : t.triage_status };
+    }
     const ageYears = (now - new Date(t.opened_at).getTime()) / (365.25 * 24 * 3600 * 1000);
     const ageOk = ageYears >= policy.age_years;
     if (!ageOk) return t;

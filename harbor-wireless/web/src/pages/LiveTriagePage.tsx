@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import type { Ticket } from "../api/types";
 import { PipelineSpine } from "../components/PipelineSpine";
+import { ageDays, waitLabel } from "../data/seed";
 import { useDemo } from "../state/DemoStore";
 
 export function LiveTriagePage() {
@@ -16,6 +17,7 @@ export function LiveTriagePage() {
       return tickets.find((t) => t.sys_id === triagingId) ?? null;
     }
     return (
+      tickets.find((t) => t.demo_hero && t.triage_status === "untriaged") ??
       tickets.find((t) => t.triage_status === "untriaged" && t.state === "new") ??
       tickets.find((t) => t.triage_status === "untriaged") ??
       tickets[0] ??
@@ -44,6 +46,35 @@ export function LiveTriagePage() {
           <>
             <div className="ticket-ref">{candidate.number}</div>
             <h2>{candidate.short_description}</h2>
+            <div className="live-meta">
+              <span>{candidate.assignment_group}</span>
+              <span>·</span>
+              <span>{candidate.channel ?? "portal"}</span>
+              <span>·</span>
+              <span>
+                urgency {candidate.urgency ?? "—"}
+                {candidate.impact ? ` / ${candidate.impact}` : ""}
+              </span>
+              <span>·</span>
+              <span className={candidate.requester_inactive ? "status flare" : ""}>
+                caller {candidate.caller_name ?? candidate.caller_id}
+                {candidate.requester_inactive ? " (inactive)" : ""}
+              </span>
+              <span>·</span>
+              <span className="mono">wait {waitLabel(ageDays(candidate.opened_at))}</span>
+              {candidate.hard_block && (
+                <>
+                  <span>·</span>
+                  <span className="status flare">hard block</span>
+                </>
+              )}
+              {candidate.cmdb_ci && (
+                <>
+                  <span>·</span>
+                  <span>CI {candidate.cmdb_ci.name}</span>
+                </>
+              )}
+            </div>
             <p className={`reason-text ${reasonStep ? "reveal" : ""}`} key={reasonStep?.id ?? "idle"}>
               {reasonStep?.reason ??
                 "Select Run triage to classify, dedupe, score priority, and route — or surface an archive candidate."}
@@ -52,6 +83,9 @@ export function LiveTriagePage() {
               <div className="reason-confidence">
                 confidence {Math.round(reasonStep.confidence * 100)}%
                 {activeStep ? ` · ${activeStep.name}` : ""}
+                {typeof reasonStep.meta?.provenance === "string"
+                  ? ` · ${reasonStep.meta.provenance}`
+                  : ""}
               </div>
             )}
             {activeTriage && !triagingId && (
@@ -59,6 +93,7 @@ export function LiveTriagePage() {
                 <div className="status route">
                   Final: {activeTriage.final_action.replace("-", " ")}
                   {activeTriage.assigned_to ? ` → ${activeTriage.assigned_to}` : ""}
+                  {activeTriage.assignment_group ? ` · ${activeTriage.assignment_group}` : ""}
                 </div>
               </div>
             )}

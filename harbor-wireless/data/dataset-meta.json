@@ -29,5 +29,13 @@
     "hardware": 53,
     "applications": 54,
     "access": 48
+  },
+  "ops_density": {
+    "heroes": 80,
+    "with_ci": 3959,
+    "hard_blocks": 781,
+    "tickets": 6000,
+    "enriched_at": "2026-11-24T18:00:00Z",
+    "notes": "Synthetic activity/CI/hard_block for Signal Deck P0/P1; no real PII."
   }
 }
